@@ -2,8 +2,15 @@ import { conectoresYFrases } from './conectores-y-frases'
 import { pruebaConectores } from './conectores-y-frases/prueba'
 import { gramaticaEsencial } from './gramatica-esencial'
 import { pruebaGramatica } from './gramatica-esencial/prueba'
-import { upcoming } from './helpers'
+import { pairProgrammingYCodeReview } from './pair-programming-y-code-review'
+import { pruebaPair } from './pair-programming-y-code-review/prueba'
+import { reunionesYDecisionesTecnicas } from './reuniones-y-decisiones-tecnicas'
+import { pruebaReuniones } from './reuniones-y-decisiones-tecnicas/prueba'
+import { laDailyYLasTareas } from './la-daily-y-las-tareas'
+import { pruebaDaily } from './la-daily-y-las-tareas/prueba'
 import type { Module } from './types'
+import { vocabularioDelDiaADia } from './vocabulario-del-dia-a-dia'
+import { pruebaVocabulario } from './vocabulario-del-dia-a-dia/prueba'
 
 const icon = (name: string) => `${import.meta.env.BASE_URL}icons/${name}.png`
 
@@ -35,12 +42,8 @@ export const modules: Module[] = [
     title: 'Vocabulario del día a día',
     subtitle: 'Presentarte, falsos amigos y leer código en voz alta',
     icon: icon('wave'),
-    sections: [
-      upcoming('Presentarte al equipo'),
-      upcoming('Falsos amigos'),
-      upcoming('Símbolos y código en voz alta'),
-      upcoming('Funciones, arrays y valores'),
-    ],
+    sections: vocabularioDelDiaADia,
+    exam: pruebaVocabulario,
   },
   {
     id: 4,
@@ -49,12 +52,8 @@ export const modules: Module[] = [
     title: 'La daily y las tareas',
     subtitle: 'Ayer, hoy, bloqueos, tickets y bugs',
     icon: icon('coffee'),
-    sections: [
-      upcoming('Ayer, hoy y bloqueos'),
-      upcoming('Tickets, prioridades y estimaciones'),
-      upcoming('Avisar que algo se retrasa'),
-      upcoming('Reportar un bug o un incidente'),
-    ],
+    sections: laDailyYLasTareas,
+    exam: pruebaDaily,
   },
   {
     id: 5,
@@ -63,12 +62,8 @@ export const modules: Module[] = [
     title: 'Pair programming y code review',
     subtitle: 'Sugerir, preguntar y comentar un PR',
     icon: icon('headphones'),
-    sections: [
-      upcoming('Sugerir sin imponer'),
-      upcoming('Pedir que repitan o expliquen'),
-      upcoming('Llevar el teclado'),
-      upcoming('Comentarios de PR y mensajes de Slack'),
-    ],
+    sections: pairProgrammingYCodeReview,
+    exam: pruebaPair,
   },
   {
     id: 6,
@@ -77,11 +72,8 @@ export const modules: Module[] = [
     title: 'Reuniones y decisiones técnicas',
     subtitle: 'Explicar arquitectura, opinar y presentar una demo',
     icon: icon('presentation'),
-    sections: [
-      upcoming('Explicar arquitectura y trade-offs'),
-      upcoming('Opinar, estar de acuerdo y discrepar'),
-      upcoming('Presentar una demo'),
-    ],
+    sections: reunionesYDecisionesTecnicas,
+    exam: pruebaReuniones,
   },
 ]
 

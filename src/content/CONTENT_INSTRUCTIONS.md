@@ -81,15 +81,15 @@ All text fields accept:
 
 ## Reading sections
 
-A reading puts the module's rules into a real text. See `gramatica-esencial/leyenda-el-dorado.ts`.
+A reading puts the module's rules into a real text and is the last lesson of the module, right before the exam. See `gramatica-esencial/leyenda-el-dorado.ts` and `vocabulario-del-dia-a-dia/historia-base-de-datos.ts`.
 
-- Pick something curious from Latin America (a legend, a story, a place), not a work scenario.
+- Pick something curious: a Latin American legend, story or place, or a short, funny work story told in the first person (a dev who deleted the production database). Pick whatever shows off the module best.
 - Match the module's level: use only the grammar taught so far. For example, module 1 has no imperfect tense and no subjunctive.
 - Keep it to 150–250 words in 4–5 short paragraphs.
 - Highlight 10–15 spots, one per rule, and don't highlight the same rule over and over.
 - Facts must be true. Check dates and names.
 - After the text, add a small `table` of hard words, then a quiz that mixes comprehension with one or two questions about the highlighted rules.
-- Audio: set `audio: 'audio/<slug>.mp3'` and put the file in `public/audio/`. Until the file exists, the player shows "Audio próximamente".
+- Audio: set `audio: 'audio/<slug>.wav'` (any browser format works) and put the file in `public/audio/`. Until the file exists, the player shows "Audio próximamente".
 
 ## Quizzes
 
