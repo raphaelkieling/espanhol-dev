@@ -2,6 +2,7 @@ import type { Section } from '../types'
 import { articulos } from './articulos'
 import { espanolEnElMundo } from './espanol-en-el-mundo'
 import { generos } from './generos'
+import { leyendaElDorado } from './leyenda-el-dorado'
 import { ordenNegacionPreguntas } from './orden-negacion-preguntas'
 import { pronombres } from './pronombres'
 import { serEstarHayTener } from './ser-estar-hay-tener'
@@ -15,4 +16,5 @@ export const gramaticaEsencial: Section[] = [
   serEstarHayTener,
   tiempos,
   ordenNegacionPreguntas,
+  leyendaElDorado,
 ]

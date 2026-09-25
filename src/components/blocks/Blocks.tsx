@@ -1,4 +1,5 @@
 import type { Block } from '../../content/types'
+import AudioPlayer from '../AudioPlayer'
 import Rich from '../Rich'
 
 function BlockView({ block }: { block: Block }) {
@@ -58,6 +59,20 @@ function BlockView({ block }: { block: Block }) {
             </li>
           ))}
         </ul>
+      )
+    case 'reading':
+      return (
+        <article className="block-reading">
+          <header className="block-reading__head">
+            {block.title && <h2 className="block-reading__title">{block.title}</h2>}
+            {block.audio && <AudioPlayer src={block.audio} />}
+          </header>
+          {block.paragraphs.map((p, i) => (
+            <p key={i}>
+              <Rich text={p} />
+            </p>
+          ))}
+        </article>
       )
   }
 }

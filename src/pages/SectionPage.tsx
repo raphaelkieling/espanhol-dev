@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import Blocks from '../components/blocks/Blocks'
 import Quiz from '../components/Quiz'
-import { hasContent, moduleSections, pad, sectionNumber } from '../content/helpers'
+import { hasContent, moduleSections, pad } from '../content/helpers'
 import { findModule } from '../content/modules'
 import { useProgress } from '../progress/ProgressContext'
 import { sectionKey } from '../progress/store'
@@ -28,7 +28,7 @@ export default function SectionPage() {
       </Link>
 
       <header className="section__head">
-        <span className="module__number">{isExam ? 'Prueba final' : `Sección ${pad(sectionNumber(module, section))}`}</span>
+        <span className="module__number">{isExam ? 'Prueba final' : `Sección ${pad(index + 1)}`}</span>
         <h1 className="section__title">{section.title}</h1>
         {section.summary && <p className="module__subtitle">{section.summary}</p>}
       </header>

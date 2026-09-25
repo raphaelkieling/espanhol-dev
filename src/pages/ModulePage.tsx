@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import CheckIcon from '../components/CheckIcon'
-import { hasContent, moduleSections, pad, sectionNumber } from '../content/helpers'
+import { hasContent, moduleSections, pad } from '../content/helpers'
 import { findModule, modules } from '../content/modules'
 import type { Module, Section } from '../content/types'
 import { useModuleProgress, useProgress } from '../progress/ProgressContext'
@@ -36,9 +36,9 @@ function ModuleView({ module }: { module: Module }) {
       </div>
 
       <ol className="sections">
-        {lessons.map((section) => (
+        {lessons.map((section, i) => (
           <li key={section.slug}>
-            <SectionRow module={module} section={section} label={pad(sectionNumber(module, section))} />
+            <SectionRow module={module} section={section} label={pad(i + 1)} />
           </li>
         ))}
       </ol>

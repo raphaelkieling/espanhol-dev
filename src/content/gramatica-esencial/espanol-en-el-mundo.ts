@@ -2,7 +2,6 @@ import type { Section } from '../types'
 
 export const espanolEnElMundo: Section = {
   slug: 'el-espanol-en-el-mundo',
-  kind: 'intro',
   title: 'El español en el mundo',
   summary: 'Um idioma, muitos sotaques, e qual deles este curso usa.',
   blocks: [
@@ -79,4 +78,38 @@ export const espanolEnElMundo: Section = {
       text: 'Ninguém espera que você imite um sotaque. Fale de forma clara e, com o tempo, pegue as palavras que o seu time usa.',
     },
   ],
+  quiz: {
+    questions: [
+      {
+        prompt: '¿Qué español siguen los ejemplos de este curso?',
+        options: ['El de España', 'El de América Latina', 'Solo el de Argentina'],
+        answer: 1,
+        explanation: 'O curso segue o espanhol da **América Latina**, com notas quando a Espanha faz diferente.',
+      },
+      {
+        prompt: 'En América Latina, "vocês" es…',
+        options: ['ustedes', 'vosotros', 'vos'],
+        answer: 0,
+        explanation: 'Na América Latina é sempre **ustedes**. Vosotros é da Espanha.',
+      },
+      {
+        prompt: 'Un argentino te pregunta "¿Podés revisar mi PR?". Es lo mismo que…',
+        options: ['¿Puedes revisar mi PR?', '¿Pueden revisar mi PR?', '¿Podemos revisar mi PR?'],
+        answer: 0,
+        explanation: '**Podés** é a forma com vos de **puedes**.',
+      },
+      {
+        prompt: 'En México, "computador" es…',
+        options: ['el ordenador', 'la computadora', 'el móvil'],
+        answer: 1,
+        explanation: 'Na América Latina é **la computadora**. Ordenador é da Espanha.',
+      },
+      {
+        prompt: 'Para dizer "pego o ticket" em qualquer país, o mais seguro é…',
+        options: ['Cojo el ticket.', 'Pego el ticket.', 'Tomo el ticket.'],
+        answer: 2,
+        explanation: '**Coger** é palavrão em vários países, e pegar significa "colar" ou "bater". Use **tomar**.',
+      },
+    ],
+  },
 }

@@ -493,6 +493,134 @@ a.sections__item:hover {
   color: var(--muted);
 }
 
+/* Reading */
+.block-reading {
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.block-reading__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.block-reading__title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.block-reading p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.block-reading p + p {
+  margin-top: 16px;
+}
+
+.hl {
+  position: relative;
+  padding: 1px 3px;
+  margin: 0 -1px;
+  color: inherit;
+  background: var(--amber-soft);
+  border-bottom: 2px solid #f5d98b;
+  border-radius: 4px;
+  outline: none;
+}
+
+.hl[data-note] {
+  cursor: help;
+}
+
+.hl[data-note]::after {
+  content: attr(data-note);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: 240px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #fff;
+  background: var(--text);
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.hl[data-note]:hover::after,
+.hl[data-note]:focus::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Audio */
+.audio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 6px;
+  background: #f6f6f6;
+  border-radius: 999px;
+}
+
+.audio__button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  background: var(--text);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.audio__button svg {
+  fill: currentColor;
+}
+
+.audio__button:disabled {
+  background: var(--faint);
+  cursor: default;
+}
+
+.audio__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.audio__track {
+  width: 72px;
+  height: 3px;
+  overflow: hidden;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.is-unavailable .audio__track {
+  display: none;
+}
+
+.audio__progress {
+  display: block;
+  height: 100%;
+  background: var(--text);
+}
+
 /* Quiz */
 .quiz {
   margin-top: 56px;

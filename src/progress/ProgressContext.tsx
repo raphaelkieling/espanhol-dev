@@ -1,14 +1,9 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { countsForProgress, moduleSections } from '../content/helpers'
+import { useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { moduleSections } from '../content/helpers'
 import type { Module } from '../content/types'
+import { ProgressContext } from './context'
 import { localProgressStore, sectionKey, type ProgressState, type ProgressStore } from './store'
 
-type ProgressContextValue = {
-  isCompleted: (key: string) => boolean
-  complete: (key: string, score: number) => void
-}
-
-const ProgressContext = createContext<ProgressContextValue | null>(null)
 
 export function ProgressProvider({ store = localProgressStore, children }: { store?: ProgressStore; children: ReactNode }) {
   const [state, setState] = useState<ProgressState>({})
@@ -39,7 +34,7 @@ export function useProgress() {
 
 export function useModuleProgress(module: Module) {
   const { isCompleted } = useProgress()
-  const sections = moduleSections(module).filter(countsForProgress)
+  const sections = moduleSections(module)
   const completed = (s: { slug: string }) => isCompleted(sectionKey(module.slug, s.slug))
   const done = sections.filter(completed).length
   const examPassed = sections.some((s) => s.kind === 'exam' && completed(s))

@@ -28,7 +28,7 @@ How to write and add course content. The site is a 7-day course that gets Brazil
 ```
 src/content/
   types.ts                 content model (Block, Question, Quiz, Section, Module)
-  helpers.ts               upcoming(), hasContent(), moduleSections(), sectionNumber()…
+  helpers.ts               upcoming(), hasContent(), moduleSections()…
   modules.ts               the list of modules
   <module-slug>/
     index.ts               ordered list of the module's sections
@@ -69,6 +69,7 @@ export const example: Section = {
 | `table` | Conjugations, Portuguese → Spanish comparisons, rules with an example each. Keep it to about 3 columns and up to 10 rows. Optional `caption` for a one-line takeaway. |
 | `examples` | Spanish sentences (`es`) with an optional Portuguese translation (`pt`). 2–4 items. |
 | `note` | `tone: 'warning'` for common mistakes and false friends. `tone: 'tip'` for shortcuts and context. Optional short `title`. |
+| `reading` | A short text in Spanish (`paragraphs`) with an optional `title` and `audio`. Use `[[…|…]]` highlights to point at the rules from the module. |
 
 ### Inline marks
 
@@ -76,6 +77,19 @@ All text fields accept:
 
 - `**bold**` to highlight the word being taught. Bold the target form only, not whole sentences.
 - `~~strike~~` for the wrong form, usually followed by `→` and the right one: `~~Reviso él~~ → **Lo** reviso.`
+- `[[text|note]]` highlights `text` and shows `note` (Portuguese, a few words) on hover or tap. It's meant for `reading` blocks: `[[al agua|a + el = al]]`.
+
+## Reading sections
+
+A reading puts the module's rules into a real text. See `gramatica-esencial/leyenda-el-dorado.ts`.
+
+- Pick something curious from Latin America (a legend, a story, a place), not a work scenario.
+- Match the module's level: use only the grammar taught so far. For example, module 1 has no imperfect tense and no subjunctive.
+- Keep it to 150–250 words in 4–5 short paragraphs.
+- Highlight 10–15 spots, one per rule, and don't highlight the same rule over and over.
+- Facts must be true. Check dates and names.
+- After the text, add a small `table` of hard words, then a quiz that mixes comprehension with one or two questions about the highlighted rules.
+- Audio: set `audio: 'audio/<slug>.mp3'` and put the file in `public/audio/`. Until the file exists, the player shows "Audio próximamente".
 
 ## Quizzes
 
@@ -94,11 +108,6 @@ All text fields accept:
 - **10 questions** that mix every lesson section of the module.
 - Passing requires **every answer to be right** (enforced by the code, so don't set `passScore`). That makes ambiguity even more costly: every question needs exactly one correct answer.
 - Passing the exam shows the check on the module's home card.
-
-## Intro sections
-
-- A module can open with a section of `kind: 'intro'`. It is numbered `00`, has no quiz and doesn't count toward progress.
-- Use it for context, not grammar (for example, "El español en el mundo").
 
 ## Adding a module
 
