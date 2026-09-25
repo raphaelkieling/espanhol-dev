@@ -1,0 +1,324 @@
+:root {
+  --bg: #fafafa;
+  --grid-line: rgba(0, 0, 0, 0.045);
+  --card: #ffffff;
+  --border: #ececec;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --faint: #d4d4d4;
+  --radius: 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Topbar */
+.topbar {
+  padding: 28px 0;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+}
+
+.brand span {
+  color: var(--faint);
+  margin: 0 2px;
+}
+
+/* Hero */
+.hero {
+  padding: 72px 0 64px;
+}
+
+.hero__title {
+  font-size: clamp(52px, 9vw, 112px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.hero__meta {
+  margin-top: 20px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+/* Grid: two per row, the first module wider */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.grid > .card {
+  grid-column: span 3;
+}
+
+.grid > .card--featured {
+  grid-column: span 4;
+}
+
+.grid > .card--featured + .card {
+  grid-column: span 2;
+}
+
+/* Card */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 24px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.card__number {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--faint);
+}
+
+.card__days {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.card__icon {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .card__icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.card__text {
+  text-align: center;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.card__subtitle {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.card--featured {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 28px;
+  padding: 40px;
+}
+
+.card--featured .card__icon {
+  width: 168px;
+  height: 168px;
+}
+
+.card--featured .card__text {
+  text-align: left;
+}
+
+.card--featured .card__title {
+  font-size: 32px;
+  letter-spacing: -0.03em;
+}
+
+.card--featured .card__subtitle {
+  font-size: 16px;
+}
+
+/* Module page */
+.module {
+  padding: 32px 0 64px;
+}
+
+.back {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.back:hover,
+.next:hover {
+  color: var(--text);
+}
+
+.module__head {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.module__icon {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.module__number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.module__title {
+  margin-top: 4px;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.module__subtitle {
+  margin-top: 12px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.topics {
+  list-style: none;
+  padding: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.topics li {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.topics li + li {
+  border-top: 1px solid var(--border);
+}
+
+.topics span {
+  flex: 0 0 24px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  color: var(--faint);
+}
+
+.next {
+  display: inline-block;
+  margin-top: 24px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Footer */
+.footer {
+  padding: 48px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer a {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid > .card,
+  .grid > .card--featured,
+  .grid > .card--featured + .card {
+    grid-column: auto;
+  }
+
+  .card--featured {
+    flex-direction: column;
+    padding: 32px 24px 28px;
+  }
+
+  .card--featured .card__icon {
+    width: 128px;
+    height: 128px;
+  }
+
+  .card--featured .card__text {
+    text-align: center;
+  }
+
+  .card--featured .card__title {
+    font-size: 24px;
+  }
+
+  .module__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .module__icon {
+    width: 112px;
+    height: 112px;
+  }
+}
