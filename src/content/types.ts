@@ -26,6 +26,11 @@ export type Quiz = {
 
 export type Section = {
   slug: string
+  /**
+   * intro: optional opening section (numbered 00, no quiz, not counted in progress).
+   * exam: generated from Module.exam and always last.
+   */
+  kind?: 'intro' | 'lesson' | 'exam'
   title: string
   summary?: string
   /** Sections without blocks are listed as upcoming. */
@@ -41,4 +46,6 @@ export type Module = {
   days: string
   icon: string
   sections: Section[]
+  /** Final exam covering the whole module. Passing requires every answer right. */
+  exam?: Quiz
 }

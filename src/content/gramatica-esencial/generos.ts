@@ -99,7 +99,7 @@ export const generos: Section = {
         explanation: 'Em espanhol é feminino: **la** alarma.',
       },
       {
-        prompt: '¿Qué ___ de programación usáis?',
+        prompt: '¿Qué ___ de programación usan?',
         options: ['lenguaje', 'linguagem', 'lengua'],
         answer: 0,
         explanation: '"Linguagem de programação" é **lenguaje** de programación (masculino).',

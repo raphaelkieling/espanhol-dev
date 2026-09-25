@@ -1,14 +1,18 @@
-import { upcoming } from '../helpers'
 import type { Section } from '../types'
 import { articulos } from './articulos'
+import { espanolEnElMundo } from './espanol-en-el-mundo'
 import { generos } from './generos'
+import { ordenNegacionPreguntas } from './orden-negacion-preguntas'
 import { pronombres } from './pronombres'
+import { serEstarHayTener } from './ser-estar-hay-tener'
+import { tiempos } from './tiempos'
 
 export const gramaticaEsencial: Section[] = [
+  espanolEnElMundo,
   articulos,
   generos,
   pronombres,
-  upcoming('Ser, estar, hay y tener'),
-  upcoming('Presente, pretérito e ir a + infinitivo'),
-  upcoming('Orden de la frase, negación y preguntas'),
+  serEstarHayTener,
+  tiempos,
+  ordenNegacionPreguntas,
 ]

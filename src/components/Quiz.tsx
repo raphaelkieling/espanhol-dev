@@ -7,9 +7,12 @@ type Props = {
   quiz: QuizData
   completed: boolean
   onPass: (score: number) => void
+  title?: string
+  successText?: string
+  variant?: 'exam'
 }
 
-export default function Quiz({ quiz, completed, onPass }: Props) {
+export default function Quiz({ quiz, completed, onPass, title = 'Mini desafío', successText = '¡Sección completada!', variant }: Props) {
   const { questions, passScore = 0.8 } = quiz
   const [answers, setAnswers] = useState<(number | null)[]>(() => questions.map(() => null))
   const [submitted, setSubmitted] = useState(false)
@@ -35,9 +38,9 @@ export default function Quiz({ quiz, completed, onPass }: Props) {
   }
 
   return (
-    <section className="quiz">
+    <section className={`quiz${variant ? ` quiz--${variant}` : ''}`}>
       <header className="quiz__head">
-        <h2>Mini desafío</h2>
+        <h2>{title}</h2>
         {completed ? (
           <span className="quiz__done">
             <CheckIcon size={18} /> Completado
@@ -87,7 +90,7 @@ export default function Quiz({ quiz, completed, onPass }: Props) {
         {submitted ? (
           <>
             <p className={`quiz__result${passed ? ' is-passed' : ''}`}>
-              {correct} de {questions.length} · {passed ? '¡Sección completada!' : `Necesitas ${needed}.`}
+              {correct} de {questions.length} · {passed ? successText : `Necesitas ${needed}.`}
             </p>
             {!passed && (
               <button type="button" className="button" onClick={retry}>

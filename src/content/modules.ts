@@ -1,4 +1,7 @@
+import { conectoresYFrases } from './conectores-y-frases'
+import { pruebaConectores } from './conectores-y-frases/prueba'
 import { gramaticaEsencial } from './gramatica-esencial'
+import { pruebaGramatica } from './gramatica-esencial/prueba'
 import { upcoming } from './helpers'
 import type { Module } from './types'
 
@@ -13,6 +16,7 @@ export const modules: Module[] = [
     subtitle: 'Artículos, pronombres, ser y estar, y cómo armar una frase',
     icon: icon('book'),
     sections: gramaticaEsencial,
+    exam: pruebaGramatica,
   },
   {
     id: 2,
@@ -21,12 +25,8 @@ export const modules: Module[] = [
     title: 'Conectores y frases',
     subtitle: 'Pero, sino, aunque, todavía, ya… para unir ideas',
     icon: icon('puzzle'),
-    sections: [
-      upcoming('Pero, sino, aunque, todavía, ya, además'),
-      upcoming('Sin embargo, entonces, o sea, por eso, es decir'),
-      upcoming('Unir ideas en vez de hablar en frases sueltas'),
-      upcoming('Muletillas para ganar tiempo'),
-    ],
+    sections: conectoresYFrases,
+    exam: pruebaConectores,
   },
   {
     id: 3,

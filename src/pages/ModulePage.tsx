@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import CheckIcon from '../components/CheckIcon'
-import { hasContent, pad } from '../content/helpers'
+import { hasContent, moduleSections, pad, sectionNumber } from '../content/helpers'
 import { findModule, modules } from '../content/modules'
+import type { Module, Section } from '../content/types'
 import { useModuleProgress, useProgress } from '../progress/ProgressContext'
 import { sectionKey } from '../progress/store'
 import NotFound from './NotFound'
@@ -13,10 +14,12 @@ export default function ModulePage() {
   return <ModuleView key={module.id} module={module} />
 }
 
-function ModuleView({ module }: { module: NonNullable<ReturnType<typeof findModule>> }) {
-  const { isCompleted } = useProgress()
+function ModuleView({ module }: { module: Module }) {
   const { done, total } = useModuleProgress(module)
   const next = modules.find((m) => m.id === module.id + 1)
+  const sections = moduleSections(module)
+  const lessons = sections.filter((s) => s.kind !== 'exam')
+  const exam = sections[sections.length - 1]
 
   return (
     <section className="module">
@@ -33,31 +36,16 @@ function ModuleView({ module }: { module: NonNullable<ReturnType<typeof findModu
       </div>
 
       <ol className="sections">
-        {module.sections.map((section, i) => {
-          const content = (
-            <>
-              <span className="sections__number">{pad(i + 1)}</span>
-              <span className="sections__title">{section.title}</span>
-              {isCompleted(sectionKey(module.slug, section.slug)) ? (
-                <CheckIcon />
-              ) : (
-                !hasContent(section) && <span className="sections__soon">Próximamente</span>
-              )}
-            </>
-          )
-          return (
-            <li key={section.slug}>
-              {hasContent(section) ? (
-                <Link to={`/modulo/${module.id}/${section.slug}`} className="sections__item">
-                  {content}
-                </Link>
-              ) : (
-                <div className="sections__item is-disabled">{content}</div>
-              )}
-            </li>
-          )
-        })}
+        {lessons.map((section) => (
+          <li key={section.slug}>
+            <SectionRow module={module} section={section} label={pad(sectionNumber(module, section))} />
+          </li>
+        ))}
       </ol>
+
+      <div className="sections sections--exam">
+        <SectionRow module={module} section={exam} label="✎" />
+      </div>
 
       {next && (
         <Link to={`/modulo/${next.id}`} className="next">
@@ -65,5 +53,27 @@ function ModuleView({ module }: { module: NonNullable<ReturnType<typeof findModu
         </Link>
       )}
     </section>
+  )
+}
+
+function SectionRow({ module, section, label }: { module: Module; section: Section; label: string }) {
+  const { isCompleted } = useProgress()
+  const content = (
+    <>
+      <span className="sections__number">{label}</span>
+      <span className="sections__title">{section.title}</span>
+      {isCompleted(sectionKey(module.slug, section.slug)) ? (
+        <CheckIcon />
+      ) : (
+        !hasContent(section) && <span className="sections__soon">Próximamente</span>
+      )}
+    </>
+  )
+  return hasContent(section) ? (
+    <Link to={`/modulo/${module.id}/${section.slug}`} className="sections__item">
+      {content}
+    </Link>
+  ) : (
+    <div className="sections__item is-disabled">{content}</div>
   )
 }

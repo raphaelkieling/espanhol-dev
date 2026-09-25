@@ -15,6 +15,10 @@
   --amber: #b45309;
   --blue-soft: #eff6ff;
   --blue: #1d4ed8;
+  --beige: #faf5ea;
+  --beige-hover: #f5eedd;
+  --beige-border: #ebe0c8;
+  --beige-text: #a08a5c;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -105,7 +109,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 32px 24px 28px;
+  padding: 32px 24px 52px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -294,6 +298,21 @@ a.sections__item:hover {
   color: var(--faint);
 }
 
+.sections--exam {
+  margin-top: 16px;
+  background: var(--beige);
+  border-color: var(--beige-border);
+}
+
+.sections--exam a.sections__item:hover {
+  background: var(--beige-hover);
+}
+
+.sections--exam .sections__number,
+.sections--exam .sections__soon {
+  color: var(--beige-text);
+}
+
 /* Check */
 .check {
   flex: none;
@@ -308,8 +327,30 @@ a.sections__item:hover {
   stroke: #fff;
 }
 
-.card__days .check {
-  margin: -3px 6px 0 0;
+.card__dots {
+  position: absolute;
+  bottom: 27px;
+  left: 22px;
+  display: flex;
+  gap: 5px;
+}
+
+.card__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.card__dot.is-done {
+  background: var(--green);
+}
+
+.card__done {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  display: flex;
 }
 
 /* Section page */
@@ -459,6 +500,11 @@ a.sections__item:hover {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+}
+
+.quiz--exam {
+  background: var(--beige);
+  border-color: var(--beige-border);
 }
 
 .quiz__head {
@@ -631,7 +677,7 @@ a.sections__item:hover {
 
   .card--featured {
     flex-direction: column;
-    padding: 32px 24px 28px;
+    padding: 32px 24px 52px;
   }
 
   .card--featured .card__icon {
