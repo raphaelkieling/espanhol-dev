@@ -1,5 +1,5 @@
 import ModuleCard from '../components/ModuleCard'
-import { modules } from '../data/modules'
+import { modules } from '../content/modules'
 
 export default function Home() {
   return (
