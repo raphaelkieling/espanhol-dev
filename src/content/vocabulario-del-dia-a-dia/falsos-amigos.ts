@@ -6,82 +6,107 @@ export const falsosAmigos: Section = {
   summary: 'Palavras que parecem português mas significam outra coisa, começando pelas que causam confusão no trabalho.',
   blocks: [
     {
-      type: 'text',
-      text: 'Português e espanhol dividem muitas palavras, mas algumas enganam. Estas são as que mais aparecem no dia a dia de um time de tecnologia.',
-    },
-    {
-      type: 'table',
-      columns: ['Español', 'Significa'],
-      rows: [
-        ['**borrar**', 'apagar, deletar'],
-        ['**apagar**', 'desligar'],
-        ['**prender** / **encender**', 'ligar (um aparelho)'],
-        ['**llamar**', 'ligar (telefonar)'],
-        ['**listo**', 'pronto, terminado'],
-        ['**pronto**', 'logo, em breve'],
-        ['**un rato**', 'um tempinho'],
-        ['**largo**', 'comprido, longo'],
-        ['**contestar**', 'responder'],
-        ['**oficina**', 'escritório'],
+      type: 'card',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Português e espanhol dividem muitas palavras, mas algumas enganam. Estas são as que mais aparecem no dia a dia de um time de tecnologia.',
+        },
+        {
+          type: 'table',
+          columns: ['Español', 'Significa'],
+          rows: [
+            ['**borrar**', 'apagar, deletar'],
+            ['**apagar**', 'desligar'],
+            ['**prender** / **encender**', 'ligar (um aparelho)'],
+            ['**llamar**', 'ligar (telefonar)'],
+            ['**listo**', 'pronto, terminado'],
+            ['**pronto**', 'logo, em breve'],
+            ['**un rato**', 'um tempinho'],
+            ['**largo**', 'comprido, longo'],
+            ['**contestar**', 'responder'],
+            ['**oficina**', 'escritório'],
+          ],
+        },
       ],
     },
 
-    { type: 'heading', text: 'borrar × apagar' },
     {
-      type: 'text',
-      text: 'O mais perigoso da lista. Em espanhol, **borrar** é deletar e **apagar** é desligar. Trocar os dois num incidente muda tudo.',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: '**Borré** la rama vieja.', pt: 'Apaguei a branch antiga.' },
-        { es: '**Apagué** el servidor de staging.', pt: 'Desliguei o servidor de staging.' },
-        { es: '¿Puedes **prender** la cámara?', pt: 'Pode ligar a câmera?' },
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~Apagué el archivo~~ → **Borré** el archivo. "Apagué el archivo" soa como "desliguei o arquivo".',
-    },
-
-    { type: 'heading', text: 'listo × pronto' },
-    {
-      type: 'text',
-      text: 'O "pronto" do português é **listo**. O **pronto** do espanhol significa "logo".',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: '¿Está **listo** el PR? — Sí, **listo**.', pt: 'O PR está pronto? — Sim, pronto.' },
-        { es: 'Lo termino **pronto**.', pt: 'Termino logo.' },
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~El deploy está pronto~~ → El deploy está **listo**.',
-    },
-
-    { type: 'heading', text: 'acordar, acordarse, despertarse' },
-    {
-      type: 'table',
-      columns: ['Español', 'Significa', 'Exemplo'],
-      rows: [
-        ['**acordar**', 'combinar', '**Acordamos** desplegar el lunes.'],
-        ['**acordarse de**', 'lembrar', '¿**Te acuerdas de** la contraseña?'],
-        ['**despertarse**', 'acordar (do sono)', 'Hoy **me desperté** tarde.'],
+      type: 'card',
+      title: 'borrar × apagar',
+      blocks: [
+        {
+          type: 'text',
+          text: 'O mais perigoso da lista. Em espanhol, **borrar** é deletar e **apagar** é desligar. Trocar os dois num incidente muda tudo.',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: '**Borré** la rama vieja.', pt: 'Apaguei a branch antiga.' },
+            { es: '**Apagué** el servidor de staging.', pt: 'Desliguei o servidor de staging.' },
+            { es: '¿Puedes **prender** la cámara?', pt: 'Pode ligar a câmera?' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~Apagué el archivo~~ → **Borré** el archivo. "Apagué el archivo" soa como "desliguei o arquivo".',
+        },
       ],
     },
 
-    { type: 'heading', text: 'Fora do trabalho' },
     {
-      type: 'table',
-      columns: ['Español', 'Significa', 'O que você quis dizer'],
-      rows: [
-        ['**embarazada**', 'grávida', 'envergonhada = **avergonzada**'],
-        ['**exquisito**', 'delicioso', 'esquisito = **raro**'],
-        ['**presunto**', 'suposto', 'presunto = **jamón**'],
+      type: 'card',
+      title: 'listo × pronto',
+      blocks: [
+        {
+          type: 'text',
+          text: 'O "pronto" do português é **listo**. O **pronto** do espanhol significa "logo".',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: '¿Está **listo** el PR? — Sí, **listo**.', pt: 'O PR está pronto? — Sim, pronto.' },
+            { es: 'Lo termino **pronto**.', pt: 'Termino logo.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~El deploy está pronto~~ → El deploy está **listo**.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'acordar, acordarse, despertarse',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Significa', 'Exemplo'],
+          rows: [
+            ['**acordar**', 'combinar', '**Acordamos** desplegar el lunes.'],
+            ['**acordarse de**', 'lembrar', '¿**Te acuerdas de** la contraseña?'],
+            ['**despertarse**', 'acordar (do sono)', 'Hoy **me desperté** tarde.'],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Fora do trabalho',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Significa', 'O que você quis dizer'],
+          rows: [
+            ['**embarazada**', 'grávida', 'envergonhada = **avergonzada**'],
+            ['**exquisito**', 'delicioso', 'esquisito = **raro**'],
+            ['**presunto**', 'suposto', 'presunto = **jamón**'],
+          ],
+        },
       ],
     },
   ],

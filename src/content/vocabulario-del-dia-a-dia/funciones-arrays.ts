@@ -6,72 +6,92 @@ export const funcionesArrays: Section = {
   summary: 'O vocabulário para explicar código: tipos, valores e o que uma função recebe e retorna.',
   blocks: [
     {
-      type: 'text',
-      text: 'Muitos termos ficam em inglês (string, array, callback). O que muda são os verbos e as palavras em volta, que você usa para explicar o que o código faz.',
-    },
-
-    { type: 'heading', text: 'Tipos e valores' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**la cadena** (string)', 'a string'],
-        ['**el número** / **el entero**', 'o número / o inteiro'],
-        ['**el booleano**', 'o booleano'],
-        ['**verdadero** / **falso**', 'true / false'],
-        ['**nulo** / **indefinido**', 'null / undefined'],
-        ['**el arreglo** (array)', 'o array'],
-        ['**el objeto**', 'o objeto'],
-        ['**la clave** / **el valor**', 'a chave / o valor'],
-        ['**vacío**', 'vazio'],
-      ],
-      caption: '"String" e "array" em inglês são entendidos em qualquer time.',
-    },
-
-    { type: 'heading', text: 'Verbos de código' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**llamar** a una función', 'chamar uma função'],
-        ['**recibir** un parámetro', 'receber um parâmetro'],
-        ['**devolver** / **retornar**', 'retornar'],
-        ['**recorrer** un arreglo', 'percorrer um array'],
-        ['**guardar** en una variable', 'guardar numa variável'],
-        ['**correr** / **ejecutar**', 'rodar, executar'],
-        ['**agregar** / **quitar**', 'adicionar / remover'],
-        ['**lanzar** una excepción', 'lançar uma exceção'],
+      type: 'card',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Muitos termos ficam em inglês (string, array, callback). O que muda são os verbos e as palavras em volta, que você usa para explicar o que o código faz.',
+        },
       ],
     },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~Rodar los tests~~ → **Correr** los tests. E para arquivos o normal é **guardar**: **guardé** el archivo.',
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      title: 'Na Espanha',
-      text: 'Ouve-se mais **ejecutar** (em vez de correr) e **añadir** (em vez de agregar).',
-    },
 
-    { type: 'heading', text: 'Explicar uma função' },
     {
-      type: 'text',
-      text: 'Para explicar uma função, diga o que ela **recebe**, o que **faz** e o que **devuelve**.',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: 'La función **recibe** un arreglo de usuarios y **devuelve** solo los activos.', pt: 'A função recebe um array de usuários e retorna só os ativos.' },
-        { es: '**Recorre** el arreglo y, si un usuario es **nulo**, lo ignora.', pt: 'Percorre o array e, se um usuário é null, ignora.' },
-        { es: 'Si la lista está **vacía**, **lanza** una excepción.', pt: 'Se a lista está vazia, lança uma exceção.' },
+      type: 'card',
+      title: 'Tipos e valores',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**la cadena** (string)', 'a string'],
+            ['**el número** / **el entero**', 'o número / o inteiro'],
+            ['**el booleano**', 'o booleano'],
+            ['**verdadero** / **falso**', 'true / false'],
+            ['**nulo** / **indefinido**', 'null / undefined'],
+            ['**el arreglo** (array)', 'o array'],
+            ['**el objeto**', 'o objeto'],
+            ['**la clave** / **el valor**', 'a chave / o valor'],
+            ['**vacío**', 'vazio'],
+          ],
+          caption: '"String" e "array" em inglês são entendidos em qualquer time.',
+        },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'tip',
-      text: 'Posições: el **primer** elemento, el **último**, la **posición** cero.',
+      type: 'card',
+      title: 'Verbos de código',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**llamar** a una función', 'chamar uma função'],
+            ['**recibir** un parámetro', 'receber um parâmetro'],
+            ['**devolver** / **retornar**', 'retornar'],
+            ['**recorrer** un arreglo', 'percorrer um array'],
+            ['**guardar** en una variable', 'guardar numa variável'],
+            ['**correr** / **ejecutar**', 'rodar, executar'],
+            ['**agregar** / **quitar**', 'adicionar / remover'],
+            ['**lanzar** una excepción', 'lançar uma exceção'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~Rodar los tests~~ → **Correr** los tests. E para arquivos o normal é **guardar**: **guardé** el archivo.',
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          title: 'Na Espanha',
+          text: 'Ouve-se mais **ejecutar** (em vez de correr) e **añadir** (em vez de agregar).',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Explicar uma função',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Para explicar uma função, diga o que ela **recebe**, o que **faz** e o que **devuelve**.',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: 'La función **recibe** un arreglo de usuarios y **devuelve** solo los activos.', pt: 'A função recebe um array de usuários e retorna só os ativos.' },
+            { es: '**Recorre** el arreglo y, si un usuario es **nulo**, lo ignora.', pt: 'Percorre o array e, se um usuário é null, ignora.' },
+            { es: 'Si la lista está **vacía**, **lanza** una excepción.', pt: 'Se a lista está vazia, lança uma exceção.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Posições: el **primer** elemento, el **último**, la **posición** cero.',
+        },
+      ],
     },
   ],
   quiz: {

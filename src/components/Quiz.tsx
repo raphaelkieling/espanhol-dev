@@ -12,7 +12,7 @@ type Props = {
   variant?: 'exam'
 }
 
-export default function Quiz({ quiz, completed, onPass, title = 'Mini desafío', successText = '¡Sección completada!', variant }: Props) {
+export default function Quiz({ quiz, completed, onPass, title = 'Desafío', successText = '¡Sección completada!', variant }: Props) {
   const { questions, passScore = 0.8 } = quiz
   const [answers, setAnswers] = useState<(number | null)[]>(() => questions.map(() => null))
   const [submitted, setSubmitted] = useState(false)
@@ -40,7 +40,16 @@ export default function Quiz({ quiz, completed, onPass, title = 'Mini desafío',
   return (
     <section className={`quiz${variant ? ` quiz--${variant}` : ''}`}>
       <header className="quiz__head">
-        <h2>{title}</h2>
+        <h2 className="quiz__title">
+          <span className="quiz__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="5" y="4" width="14" height="17" rx="2.5" />
+              <path d="M9 4V3h6v1" />
+              <path d="m9 12.5 2 2 4-4" />
+            </svg>
+          </span>
+          {title}
+        </h2>
         {completed ? (
           <span className="quiz__done">
             <CheckIcon size={18} /> Completado

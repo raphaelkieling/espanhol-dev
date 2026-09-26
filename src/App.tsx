@@ -1,8 +1,14 @@
 import { useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import { useProgress } from './progress/ProgressContext'
 
 export default function App() {
   const { pathname } = useLocation()
+  const { reset } = useProgress()
+
+  const confirmReset = () => {
+    if (window.confirm('¿Borrar todo tu progreso? Las secciones y pruebas completadas vuelven a cero.')) reset()
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -19,7 +25,15 @@ export default function App() {
         <Outlet />
       </main>
       <footer className="footer">
-        Iconos de <a href="https://www.thiings.co/things" target="_blank" rel="noreferrer">Thiings</a>
+        <span>
+          Iconos de <a href="https://www.thiings.co/things" target="_blank" rel="noreferrer">Thiings</a>
+        </span>
+        <nav className="footer__links">
+          <Link to="/diccionario">Diccionario</Link>
+          <button type="button" className="footer__reset" onClick={confirmReset}>
+            Reiniciar progreso
+          </button>
+        </nav>
       </footer>
     </div>
   )

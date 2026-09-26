@@ -5,6 +5,8 @@
 
 export type Block =
   | { type: 'heading'; text: string }
+  /** White card grouping related blocks, so each sub-topic reads as its own unit. */
+  | { type: 'card'; title?: string; blocks: Block[] }
   | { type: 'text'; text: string }
   | { type: 'table'; columns: string[]; rows: string[][]; caption?: string }
   | { type: 'note'; tone?: 'tip' | 'warning'; title?: string; text: string }
@@ -52,4 +54,18 @@ export type Module = {
   sections: Section[]
   /** Final exam covering the whole module. Passing requires every answer right. */
   exam?: Quiz
+}
+
+/** Vocabulary entry for the dictionary page (src/content/words.ts). */
+export type Word = {
+  /** Spanish word or expression, as the learner would look it up: 'todavía', 'hacer un deploy'. */
+  es: string
+  /** Where or how it's used at work, in Portuguese: 'Na daily, para falar do que falta'. */
+  context: string
+  /** Meaning in Portuguese. */
+  pt: string
+  /** 1–2 Spanish example sentences from real work situations. Accept inline marks. */
+  examples: string[]
+  /** Id of the module that teaches it. */
+  module: number
 }

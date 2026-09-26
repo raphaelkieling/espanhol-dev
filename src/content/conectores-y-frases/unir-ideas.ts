@@ -6,82 +6,107 @@ export const unirIdeas: Section = {
   summary: 'Como transformar frases curtas e soltas em uma explicação que flui.',
   blocks: [
     {
-      type: 'text',
-      text: 'Quem está aprendendo costuma falar em frases curtas e separadas. Dá para entender, mas soa travado. Com poucas palavras de ligação, a mesma ideia fica natural.',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: 'Encontré un bug. Está en el login. Lo voy a arreglar hoy.', pt: 'Antes: três frases soltas' },
-        { es: 'Encontré un bug **en el** login **y** lo voy a arreglar hoy.', pt: 'Depois: uma frase só' },
-      ],
-    },
-
-    { type: 'heading', text: 'que, donde, cuando' },
-    {
-      type: 'text',
-      text: 'Para falar mais sobre algo que você acabou de mencionar, use **que** (coisa ou pessoa), **donde** (lugar) e **cuando** (momento).',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: 'El bug **que** encontré ayer ya está arreglado.', pt: 'O bug que encontrei ontem já está arrumado.' },
-        { es: 'Es el archivo **donde** está la config.', pt: 'É o arquivo onde fica a config.' },
-        { es: '**Cuando** termine el deploy, te aviso.', pt: 'Quando o deploy terminar, te aviso.' },
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: 'Sem acento quando liga frases (**que**, **donde**, **cuando**). Com acento só em perguntas (¿**qué**?, ¿**dónde**?, ¿**cuándo**?).',
-    },
-
-    { type: 'heading', text: 'antes de, después de, para + infinitivo' },
-    {
-      type: 'text',
-      text: 'Depois dessas expressões, o verbo fica no **infinitivo**, como em português.',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: '**Antes de desplegar**, corro los tests.', pt: 'Antes de fazer deploy, rodo os testes.' },
-        { es: '**Después de revisar** el PR, lo aprobé.', pt: 'Depois de revisar o PR, aprovei.' },
-        { es: 'Uso un mock **para probar** el servicio.', pt: 'Uso um mock para testar o serviço.' },
-      ],
-    },
-
-    { type: 'heading', text: 'y → e, o → u' },
-    {
-      type: 'text',
-      text: 'Para não repetir o som, **y** vira **e** antes de palavra que começa com som de "i", e **o** vira **u** antes de som de "o".',
-    },
-    {
-      type: 'table',
-      columns: ['Regra', 'Exemplo'],
-      rows: [
-        ['y → **e** antes de i- / hi-', 'tests unitarios **e** integración'],
-        ['o → **u** antes de o- / ho-', 'siete **u** ocho días'],
-      ],
-    },
-
-    { type: 'heading', text: 'Uma mensagem completa' },
-    {
-      type: 'text',
-      text: 'Para explicar um problema, siga a ordem **contexto → problema → próximo passo**, ligando as partes com os conectores do módulo.',
-    },
-    {
-      type: 'examples',
-      items: [
+      type: 'card',
+      blocks: [
         {
-          es: 'Estuve revisando el checkout **y** vi que el pago falla con tarjetas internacionales. **Todavía** no sé la causa, **pero** creo que es el cambio de ayer, **así que** lo voy a revertir **para probar**.',
-          pt: 'Estive revisando o checkout e vi que o pagamento falha com cartões internacionais. Ainda não sei a causa, mas acho que é a mudança de ontem, então vou reverter para testar.',
+          type: 'text',
+          text: 'Quem está aprendendo costuma falar em frases curtas e separadas. Dá para entender, mas soa travado. Com poucas palavras de ligação, a mesma ideia fica natural.',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: 'Encontré un bug. Está en el login. Lo voy a arreglar hoy.', pt: 'Antes: três frases soltas' },
+            { es: 'Encontré un bug **en el** login **y** lo voy a arreglar hoy.', pt: 'Depois: uma frase só' },
+          ],
         },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'warning',
-      text: 'Não precisa ligar tudo. Uma frase com dois ou três conectores já soa natural. Frases longas demais com "y… y… y entonces…" confundem.',
+      type: 'card',
+      title: 'que, donde, cuando',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Para falar mais sobre algo que você acabou de mencionar, use **que** (coisa ou pessoa), **donde** (lugar) e **cuando** (momento).',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: 'El bug **que** encontré ayer ya está arreglado.', pt: 'O bug que encontrei ontem já está arrumado.' },
+            { es: 'Es el archivo **donde** está la config.', pt: 'É o arquivo onde fica a config.' },
+            { es: '**Cuando** termine el deploy, te aviso.', pt: 'Quando o deploy terminar, te aviso.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Sem acento quando liga frases (**que**, **donde**, **cuando**). Com acento só em perguntas (¿**qué**?, ¿**dónde**?, ¿**cuándo**?).',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'antes de, después de, para + infinitivo',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Depois dessas expressões, o verbo fica no **infinitivo**, como em português.',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: '**Antes de desplegar**, corro los tests.', pt: 'Antes de fazer deploy, rodo os testes.' },
+            { es: '**Después de revisar** el PR, lo aprobé.', pt: 'Depois de revisar o PR, aprovei.' },
+            { es: 'Uso un mock **para probar** el servicio.', pt: 'Uso um mock para testar o serviço.' },
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'y → e, o → u',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Para não repetir o som, **y** vira **e** antes de palavra que começa com som de "i", e **o** vira **u** antes de som de "o".',
+        },
+        {
+          type: 'table',
+          columns: ['Regra', 'Exemplo'],
+          rows: [
+            ['y → **e** antes de i- / hi-', 'tests unitarios **e** integración'],
+            ['o → **u** antes de o- / ho-', 'siete **u** ocho días'],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Uma mensagem completa',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Para explicar um problema, siga a ordem **contexto → problema → próximo passo**, ligando as partes com os conectores do módulo.',
+        },
+        {
+          type: 'examples',
+          items: [
+            {
+              es: 'Estuve revisando el checkout **y** vi que el pago falla con tarjetas internacionales. **Todavía** no sé la causa, **pero** creo que es el cambio de ayer, **así que** lo voy a revertir **para probar**.',
+              pt: 'Estive revisando o checkout e vi que o pagamento falha com cartões internacionais. Ainda não sei a causa, mas acho que é a mudança de ontem, então vou reverter para testar.',
+            },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: 'Não precisa ligar tudo. Uma frase com dois ou três conectores já soa natural. Frases longas demais com "y… y… y entonces…" confundem.',
+        },
+      ],
     },
   ],
   quiz: {

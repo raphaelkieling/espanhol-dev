@@ -19,17 +19,22 @@ export const historiaBaseDeDatos: Section = {
       ],
     },
 
-    { type: 'heading', text: 'Palavras do texto' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['me pidió', 'me pediu'],
-        ['armar', 'montar'],
-        ['llegar', 'chegar'],
-        ['quedar', 'ficar (quedó vacía = ficou vazia)'],
-        ['nadie', 'ninguém'],
-        ['Tranquilo.', 'Calma. / Relaxa.'],
+      type: 'card',
+      title: 'Palavras do texto',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['me pidió', 'me pediu'],
+            ['armar', 'montar'],
+            ['llegar', 'chegar'],
+            ['quedar', 'ficar (quedó vacía = ficou vazia)'],
+            ['nadie', 'ninguém'],
+            ['Tranquilo.', 'Calma. / Relaxa.'],
+          ],
+        },
       ],
     },
   ],

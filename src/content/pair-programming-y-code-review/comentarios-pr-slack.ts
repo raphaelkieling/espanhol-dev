@@ -6,70 +6,90 @@ export const comentariosPrSlack: Section = {
   summary: 'Comentários de review claros e gentis, e mensagens de Slack que se resolvem na primeira troca.',
   blocks: [
     {
-      type: 'text',
-      text: 'Por escrito não há tom de voz, e um comentário curto demais pode soar seco. Algumas fórmulas resolvem isso.',
-    },
-
-    { type: 'heading', text: 'Comentários de PR' },
-    {
-      type: 'table',
-      columns: ['Tipo', 'Exemplo'],
-      rows: [
-        ['Sugestão', '**¿Qué tal si** extraemos esto a una función?'],
-        ['Pergunta', '**¿Por qué** usaste un setTimeout aquí?'],
-        ['Detalhe', '**nit:** falta un espacio.'],
-        ['Bloqueante', '**Esto rompe** el login si el usuario es nulo.'],
-        ['Elogio', '**Muy bien resuelto.** / **Me gusta** este enfoque.'],
-        ['Aprovar', '**LGTM.** / **Aprobado.**'],
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: 'Deixe claro se o comentário bloqueia o merge. **nit:** e **opcional:** avisam que não bloqueiam.',
-    },
-
-    { type: 'heading', text: 'Responder a um review' },
-    {
-      type: 'examples',
-      items: [
-        { es: '**Tienes razón**, ya lo cambié.', pt: 'Você tem razão, já mudei.' },
-        { es: '**Buena observación.** Lo arreglé en el último commit.', pt: 'Boa observação. Arrumei no último commit.' },
-        { es: '**Lo dejé así porque** la API devuelve null a veces.', pt: 'Deixei assim porque a API retorna null às vezes.' },
-        { es: '¿**Lo vemos en una llamada**? Es más fácil.', pt: 'Vemos isso numa call? É mais fácil.' },
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: 'Arrumar (consertar) é **arreglar**: ~~ya lo arrumé~~ → ya lo **arreglé**.',
-    },
-
-    { type: 'heading', text: 'Slack' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**¿Tienes un minuto?**', 'Tem um minuto?'],
-        ['**¿Le puedes echar un vistazo a**…?', 'Pode dar uma olhada em…?'],
-        ['**Te dejo el link.**', 'Te mando o link.'],
-        ['**Cuando puedas.**', 'Quando puder.'],
-        ['**Quedo atento.** / **Quedo atenta.**', 'Fico no aguardo.'],
-      ],
-    },
-    {
-      type: 'examples',
-      items: [
+      type: 'card',
+      blocks: [
         {
-          es: 'Hola, Sofía. **¿Le puedes echar un vistazo a** mi PR? Es un cambio pequeño en el login. **Te dejo el link.** **Cuando puedas**, gracias.',
-          pt: 'Oi, Sofía. Pode dar uma olhada no meu PR? É uma mudança pequena no login. Te mando o link. Quando puder, obrigado.',
+          type: 'text',
+          text: 'Por escrito não há tom de voz, e um comentário curto demais pode soar seco. Algumas fórmulas resolvem isso.',
         },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'tip',
-      text: 'Não mande só "Hola" e fique esperando. Escreva a pergunta completa já na primeira mensagem.',
+      type: 'card',
+      title: 'Comentários de PR',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Tipo', 'Exemplo'],
+          rows: [
+            ['Sugestão', '**¿Qué tal si** extraemos esto a una función?'],
+            ['Pergunta', '**¿Por qué** usaste un setTimeout aquí?'],
+            ['Detalhe', '**nit:** falta un espacio.'],
+            ['Bloqueante', '**Esto rompe** el login si el usuario es nulo.'],
+            ['Elogio', '**Muy bien resuelto.** / **Me gusta** este enfoque.'],
+            ['Aprovar', '**LGTM.** / **Aprobado.**'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Deixe claro se o comentário bloqueia o merge. **nit:** e **opcional:** avisam que não bloqueiam.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Responder a um review',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '**Tienes razón**, ya lo cambié.', pt: 'Você tem razão, já mudei.' },
+            { es: '**Buena observación.** Lo arreglé en el último commit.', pt: 'Boa observação. Arrumei no último commit.' },
+            { es: '**Lo dejé así porque** la API devuelve null a veces.', pt: 'Deixei assim porque a API retorna null às vezes.' },
+            { es: '¿**Lo vemos en una llamada**? Es más fácil.', pt: 'Vemos isso numa call? É mais fácil.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: 'Arrumar (consertar) é **arreglar**: ~~ya lo arrumé~~ → ya lo **arreglé**.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Slack',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**¿Tienes un minuto?**', 'Tem um minuto?'],
+            ['**¿Le puedes echar un vistazo a**…?', 'Pode dar uma olhada em…?'],
+            ['**Te dejo el link.**', 'Te mando o link.'],
+            ['**Cuando puedas.**', 'Quando puder.'],
+            ['**Quedo atento.** / **Quedo atenta.**', 'Fico no aguardo.'],
+          ],
+        },
+        {
+          type: 'examples',
+          items: [
+            {
+              es: 'Hola, Sofía. **¿Le puedes echar un vistazo a** mi PR? Es un cambio pequeño en el login. **Te dejo el link.** **Cuando puedas**, gracias.',
+              pt: 'Oi, Sofía. Pode dar uma olhada no meu PR? É uma mudança pequena no login. Te mando o link. Quando puder, obrigado.',
+            },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Não mande só "Hola" e fique esperando. Escreva a pergunta completa já na primeira mensagem.',
+        },
+      ],
     },
   ],
   quiz: {

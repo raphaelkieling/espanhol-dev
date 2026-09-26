@@ -15,6 +15,7 @@
   --amber: #b45309;
   --blue-soft: #eff6ff;
   --blue: #1d4ed8;
+  --blue-mark: #dbeafe;
   --beige: #faf5ea;
   --beige-hover: #f5eedd;
   --beige-border: #ebe0c8;
@@ -395,6 +396,30 @@ a.sections__item:hover {
   letter-spacing: -0.02em;
 }
 
+.block-card {
+  padding: 28px 32px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.block-card__title {
+  margin-bottom: 14px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Inside a white card, nested white surfaces need contrast */
+.block-card .block-examples li {
+  background: var(--bg);
+  border-color: transparent;
+}
+
+.block-card .block-examples li:hover {
+  border-color: var(--border);
+}
+
 .block-table {
   margin: 0;
   overflow-x: auto;
@@ -479,17 +504,55 @@ a.sections__item:hover {
 }
 
 .block-examples li {
-  display: flex;
-  flex-direction: column;
-  padding: 12px 18px;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 14px;
+  align-items: center;
+  padding: 14px 18px 14px 14px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--text);
-  border-radius: 10px;
+  border-radius: 14px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.block-examples li:hover {
+  border-color: var(--faint);
+  transform: translateX(2px);
+}
+
+.block-examples__icon {
+  grid-row: span 2;
+  align-self: start;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--text);
+}
+
+.block-examples__icon svg {
+  fill: #fff;
+}
+
+.block-examples__es {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.block-examples__es strong {
+  padding: 0 2px;
+  margin: 0 -2px;
+  border-radius: 3px;
+  background: linear-gradient(transparent 58%, var(--blue-mark) 58%);
 }
 
 .block-examples__pt {
+  grid-column: 2;
+  margin-top: 2px;
   font-size: 14px;
+  line-height: 1.45;
   color: var(--muted);
 }
 
@@ -643,10 +706,27 @@ a.sections__item:hover {
   margin-bottom: 24px;
 }
 
-.quiz__head h2 {
+.quiz__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.quiz__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  background: var(--text);
+  border-radius: 50%;
+}
+
+.quiz--exam .quiz__icon {
+  background: var(--beige-text);
 }
 
 .quiz__hint,
@@ -764,6 +844,12 @@ a.sections__item:hover {
   cursor: pointer;
 }
 
+.button--ghost {
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
 .button:disabled {
   opacity: 0.3;
   cursor: default;
@@ -783,8 +869,82 @@ a.sections__item:hover {
   color: var(--muted);
 }
 
-.footer a {
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.footer a,
+.footer__reset {
   text-decoration: underline;
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__reset {
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.footer__links a:hover {
+  color: var(--text);
+}
+
+.footer__reset:hover {
+  color: var(--red);
+}
+
+/* Words */
+.words__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 40px 0 32px;
+}
+
+.words__table td {
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.words__table td:first-child {
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.words__table td:nth-child(2) {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.words__table .words__module td {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--beige-text);
+  background: var(--beige);
+  white-space: normal;
+}
+
+.words__examples {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 /* Mobile */
@@ -832,7 +992,8 @@ a.sections__item:hover {
     height: 112px;
   }
 
-  .quiz {
+  .quiz,
+  .block-card {
     padding: 24px 20px;
   }
 }

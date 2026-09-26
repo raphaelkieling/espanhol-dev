@@ -19,19 +19,24 @@ export const leyendaLaLlorona: Section = {
       ],
     },
 
-    { type: 'heading', text: 'Palavras do texto' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['tarde o temprano', 'cedo ou tarde'],
-        ['enojarse', 'ficar bravo'],
-        ['la rabia', 'a raiva'],
-        ['el pelo', 'o cabelo'],
-        ['hinchado', 'inchado'],
-        ['el llanto', 'o choro'],
-        ['lejos / cerca', 'longe / perto'],
-        ['por si acaso', 'por via das dúvidas'],
+      type: 'card',
+      title: 'Palavras do texto',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['tarde o temprano', 'cedo ou tarde'],
+            ['enojarse', 'ficar bravo'],
+            ['la rabia', 'a raiva'],
+            ['el pelo', 'o cabelo'],
+            ['hinchado', 'inchado'],
+            ['el llanto', 'o choro'],
+            ['lejos / cerca', 'longe / perto'],
+            ['por si acaso', 'por via das dúvidas'],
+          ],
+        },
       ],
     },
   ],

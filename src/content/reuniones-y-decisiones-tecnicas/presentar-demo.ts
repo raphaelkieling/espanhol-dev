@@ -6,64 +6,89 @@ export const presentarDemo: Section = {
   summary: 'A estrutura de uma demo curta, o que dizer quando algo dá errado e como responder perguntas.',
   blocks: [
     {
-      type: 'text',
-      text: 'Uma boa demo segue uma estrutura simples: **contexto → demo → próximos pasos → preguntas**.',
-    },
-
-    { type: 'heading', text: 'Abrir' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**¿Se ve bien mi pantalla?**', 'Minha tela está aparecendo bem?'],
-        ['**Les voy a mostrar**…', 'Vou mostrar para vocês…'],
-        ['**Hasta ahora**, el usuario tiene que…', 'Até agora, o usuário tem que…'],
-        ['**Con este cambio**…', 'Com essa mudança…'],
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~Voy a apresentar~~ → Voy a **presentar**. E lembre: tela é **pantalla**.',
-    },
-
-    { type: 'heading', text: 'Durante a demo' },
-    {
-      type: 'examples',
-      items: [
-        { es: '**Primero** entro como administrador.', pt: 'Primeiro entro como administrador.' },
-        { es: '**Como ven**, el reporte carga en dos segundos.', pt: 'Como vocês podem ver, o relatório carrega em dois segundos.' },
-        { es: '**Aquí** pueden ver los filtros.', pt: 'Aqui vocês podem ver os filtros.' },
-        { es: '**Si hago clic aquí**, se abre el detalle.', pt: 'Se eu clicar aqui, abre o detalhe.' },
+      type: 'card',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Uma boa demo segue uma estrutura simples: **contexto → demo → próximos pasos → preguntas**.',
+        },
       ],
     },
 
-    { type: 'heading', text: 'Quando algo dá errado' },
     {
-      type: 'examples',
-      items: [
-        { es: '**Parece que** el servidor está lento. **Un segundo.**', pt: 'Parece que o servidor está lento. Um segundo.' },
-        { es: '**Esto funcionó hace cinco minutos**, lo prometo.', pt: 'Isso funcionou cinco minutos atrás, juro.' },
-        { es: '**Tengo un video**, por si acaso.', pt: 'Tenho um vídeo, por via das dúvidas.' },
-        { es: '**Lo reviso después** y les aviso.', pt: 'Vejo isso depois e aviso vocês.' },
+      type: 'card',
+      title: 'Abrir',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**¿Se ve bien mi pantalla?**', 'Minha tela está aparecendo bem?'],
+            ['**Les voy a mostrar**…', 'Vou mostrar para vocês…'],
+            ['**Hasta ahora**, el usuario tiene que…', 'Até agora, o usuário tem que…'],
+            ['**Con este cambio**…', 'Com essa mudança…'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~Voy a apresentar~~ → Voy a **presentar**. E lembre: tela é **pantalla**.',
+        },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'tip',
-      text: 'Tenha um plano B, como um vídeo ou screenshots. Um pouco de humor também ajuda: todo mundo já teve uma demo que falhou.',
+      type: 'card',
+      title: 'Durante a demo',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '**Primero** entro como administrador.', pt: 'Primeiro entro como administrador.' },
+            { es: '**Como ven**, el reporte carga en dos segundos.', pt: 'Como vocês podem ver, o relatório carrega em dois segundos.' },
+            { es: '**Aquí** pueden ver los filtros.', pt: 'Aqui vocês podem ver os filtros.' },
+            { es: '**Si hago clic aquí**, se abre el detalle.', pt: 'Se eu clicar aqui, abre o detalhe.' },
+          ],
+        },
+      ],
     },
 
-    { type: 'heading', text: 'Fechar e responder perguntas' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**Los próximos pasos son**…', 'Os próximos passos são…'],
-        ['**¿Alguna pregunta?**', 'Alguma pergunta?'],
-        ['**Buena pregunta.**', 'Boa pergunta.'],
-        ['**No lo sé, pero lo averiguo** y te aviso.', 'Não sei, mas vou descobrir e te aviso.'],
-        ['**Eso es todo.** Gracias.', 'É isso. Obrigado.'],
+      type: 'card',
+      title: 'Quando algo dá errado',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '**Parece que** el servidor está lento. **Un segundo.**', pt: 'Parece que o servidor está lento. Um segundo.' },
+            { es: '**Esto funcionó hace cinco minutos**, lo prometo.', pt: 'Isso funcionou cinco minutos atrás, juro.' },
+            { es: '**Tengo un video**, por si acaso.', pt: 'Tenho um vídeo, por via das dúvidas.' },
+            { es: '**Lo reviso después** y les aviso.', pt: 'Vejo isso depois e aviso vocês.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Tenha um plano B, como um vídeo ou screenshots. Um pouco de humor também ajuda: todo mundo já teve uma demo que falhou.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Fechar e responder perguntas',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**Los próximos pasos son**…', 'Os próximos passos são…'],
+            ['**¿Alguna pregunta?**', 'Alguma pergunta?'],
+            ['**Buena pregunta.**', 'Boa pergunta.'],
+            ['**No lo sé, pero lo averiguo** y te aviso.', 'Não sei, mas vou descobrir e te aviso.'],
+            ['**Eso es todo.** Gracias.', 'É isso. Obrigado.'],
+          ],
+        },
       ],
     },
   ],

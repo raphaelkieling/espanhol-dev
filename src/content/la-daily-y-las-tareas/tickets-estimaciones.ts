@@ -6,77 +6,97 @@ export const ticketsEstimaciones: Section = {
   summary: 'O vocabulário da planning: tickets, escopo, prioridade e como estimar sem prometer demais.',
   blocks: [
     {
-      type: 'text',
-      text: 'Em plannings e refinamentos, muita coisa fica em inglês (sprint, backlog, story points). O resto é este vocabulário:',
-    },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**la tarea** / el ticket', 'a tarefa / o ticket'],
-        ['**la historia de usuario**', 'a user story'],
-        ['**el refinamiento**', 'o refinamento'],
-        ['**los criterios de aceptación**', 'os critérios de aceite'],
-        ['**la estimación**', 'a estimativa'],
-        ['**el alcance**', 'o escopo'],
-        ['**el plazo**', 'o prazo'],
-        ['**la fecha de entrega**', 'a data de entrega'],
+      type: 'card',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Em plannings e refinamentos, muita coisa fica em inglês (sprint, backlog, story points). O resto é este vocabulário:',
+        },
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**la tarea** / el ticket', 'a tarefa / o ticket'],
+            ['**la historia de usuario**', 'a user story'],
+            ['**el refinamiento**', 'o refinamento'],
+            ['**los criterios de aceptación**', 'os critérios de aceite'],
+            ['**la estimación**', 'a estimativa'],
+            ['**el alcance**', 'o escopo'],
+            ['**el plazo**', 'o prazo'],
+            ['**la fecha de entrega**', 'a data de entrega'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~La estimativa~~ → la **estimación**. ~~El escopo~~ → el **alcance**.',
+        },
       ],
     },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~La estimativa~~ → la **estimación**. ~~El escopo~~ → el **alcance**.',
-    },
 
-    { type: 'heading', text: 'Prioridades' },
     {
-      type: 'examples',
-      items: [
-        { es: 'Esto es **urgente**, hay que hacerlo hoy.', pt: 'Isso é urgente, tem que ser feito hoje.' },
-        { es: '**Primero** el bug y **después** la feature.', pt: 'Primeiro o bug e depois a feature.' },
-        { es: 'Eso **puede esperar al** próximo sprint.', pt: 'Isso pode esperar o próximo sprint.' },
-        { es: '¿Qué es **más importante**: el reporte o el login?', pt: 'O que é mais importante: o relatório ou o login?' },
+      type: 'card',
+      title: 'Prioridades',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: 'Esto es **urgente**, hay que hacerlo hoy.', pt: 'Isso é urgente, tem que ser feito hoje.' },
+            { es: '**Primero** el bug y **después** la feature.', pt: 'Primeiro o bug e depois a feature.' },
+            { es: 'Eso **puede esperar al** próximo sprint.', pt: 'Isso pode esperar o próximo sprint.' },
+            { es: '¿Qué es **más importante**: el reporte o el login?', pt: 'O que é mais importante: o relatório ou o login?' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Nos tickets: prioridad **alta**, **media** o **baja**.',
+        },
       ],
     },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: 'Nos tickets: prioridad **alta**, **media** o **baja**.',
-    },
 
-    { type: 'heading', text: 'Estimar' },
     {
-      type: 'text',
-      text: 'Ao estimar, é normal deixar margem. Estas frases dão um número sem virar promessa.',
-    },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**Calculo** dos días.', 'Calculo dois dias.'],
-        ['**Más o menos** tres puntos.', 'Mais ou menos três pontos.'],
-        ['**Le pongo** cinco puntos.', 'Dou cinco pontos.'],
-        ['**Como mínimo**, una semana.', 'No mínimo, uma semana.'],
-        ['**Depende de** la API de pagos.', 'Depende da API de pagamentos.'],
-        ['**Es más grande de lo que parece.**', 'É maior do que parece.'],
-        ['**Todavía no sé**, necesito investigar un poco.', 'Ainda não sei, preciso investigar um pouco.'],
+      type: 'card',
+      title: 'Estimar',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Ao estimar, é normal deixar margem. Estas frases dão um número sem virar promessa.',
+        },
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**Calculo** dos días.', 'Calculo dois dias.'],
+            ['**Más o menos** tres puntos.', 'Mais ou menos três pontos.'],
+            ['**Le pongo** cinco puntos.', 'Dou cinco pontos.'],
+            ['**Como mínimo**, una semana.', 'No mínimo, uma semana.'],
+            ['**Depende de** la API de pagos.', 'Depende da API de pagamentos.'],
+            ['**Es más grande de lo que parece.**', 'É maior do que parece.'],
+            ['**Todavía no sé**, necesito investigar un poco.', 'Ainda não sei, preciso investigar um pouco.'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Para duração, use **llevar**, como em "llevo dos años": esto **va a llevar** tres días.',
+        },
       ],
     },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: 'Para duração, use **llevar**, como em "llevo dos años": esto **va a llevar** tres días.',
-    },
 
-    { type: 'heading', text: 'Pedir clareza' },
     {
-      type: 'examples',
-      items: [
-        { es: '¿**Cuál es el alcance**?', pt: 'Qual é o escopo?' },
-        { es: '¿**Para cuándo** lo necesitan?', pt: 'Para quando vocês precisam?' },
-        { es: '¿Esto **entra en** este sprint?', pt: 'Isso entra neste sprint?' },
-        { es: '¿**Cuáles son** los criterios de aceptación?', pt: 'Quais são os critérios de aceite?' },
+      type: 'card',
+      title: 'Pedir clareza',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '¿**Cuál es el alcance**?', pt: 'Qual é o escopo?' },
+            { es: '¿**Para cuándo** lo necesitan?', pt: 'Para quando vocês precisam?' },
+            { es: '¿Esto **entra en** este sprint?', pt: 'Isso entra neste sprint?' },
+            { es: '¿**Cuáles son** los criterios de aceptación?', pt: 'Quais são os critérios de aceite?' },
+          ],
+        },
       ],
     },
   ],

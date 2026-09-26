@@ -19,17 +19,22 @@ export const historiaMvp: Section = {
       ],
     },
 
-    { type: 'heading', text: 'Palavras do texto' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['el pedido', 'o pedido, a solicitação'],
-        ['lo de los reportes', 'a questão dos relatórios'],
-        ['temprano', 'cedo'],
-        ['la llamada', 'a call, a ligação'],
-        ['descargar', 'baixar (download)'],
-        ['salir roto / salir perfecto', 'sair quebrado / ficar perfeito'],
+      type: 'card',
+      title: 'Palavras do texto',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['el pedido', 'o pedido, a solicitação'],
+            ['lo de los reportes', 'a questão dos relatórios'],
+            ['temprano', 'cedo'],
+            ['la llamada', 'a call, a ligação'],
+            ['descargar', 'baixar (download)'],
+            ['salir roto / salir perfecto', 'sair quebrado / ficar perfeito'],
+          ],
+        },
       ],
     },
   ],

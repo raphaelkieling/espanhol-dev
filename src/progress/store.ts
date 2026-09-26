@@ -12,6 +12,7 @@ export type ProgressState = Record<string, SectionProgress>
 export interface ProgressStore {
   load(): Promise<ProgressState>
   save(key: string, progress: SectionProgress): Promise<void>
+  clear(): Promise<void>
 }
 
 const STORAGE_KEY = 'espanol-para-devs:progress:v1'
@@ -28,6 +29,9 @@ export const localProgressStore: ProgressStore = {
     const state = await this.load()
     state[key] = progress
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+  },
+  async clear() {
+    localStorage.removeItem(STORAGE_KEY)
   },
 }
 

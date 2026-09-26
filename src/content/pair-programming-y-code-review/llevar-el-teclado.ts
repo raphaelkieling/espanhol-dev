@@ -6,69 +6,94 @@ export const llevarElTeclado: Section = {
   summary: 'As frases de quem digita (driver) e de quem guia (navigator) numa sessão de pair.',
   blocks: [
     {
-      type: 'text',
-      text: 'No pair, uma pessoa digita (**lleva el teclado**, o driver) e a outra guia (o navigator). Os termos em inglês são usados, mas as frases do dia a dia são em espanhol.',
-    },
-
-    { type: 'heading', text: 'Começar e trocar' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**¿Quién comparte pantalla?**', 'Quem compartilha a tela?'],
-        ['**Comparto yo.**', 'Eu compartilho.'],
-        ['**¿Ves mi pantalla?**', 'Está vendo minha tela?'],
-        ['**¿Me pasas el teclado?**', 'Me passa o teclado?'],
-        ['**Te paso el control.**', 'Te passo o controle.'],
-        ['**¿Cambiamos?**', 'Vamos trocar?'],
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~Comparto la tela~~ → Comparto la **pantalla**. Em espanhol, tela é tecido.',
-    },
-
-    { type: 'heading', text: 'Guiar' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**Baja** un poco. / **Sube.**', 'Desce um pouco. / Sobe.'],
-        ['**Ahí.** / **Justo ahí.**', 'Aí. / Bem aí.'],
-        ['**En la línea** 42.', 'Na linha 42.'],
-        ['**Abre** el archivo de config.', 'Abre o arquivo de config.'],
-        ['**Espera**, vuelve atrás.', 'Espera, volta.'],
-        ['**Dale.**', 'Vai. / Pode mandar.'],
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: 'Para pedir algo a "tú", use a mesma forma do "él" no presente: él **abre** → **abre** el archivo. **Dale** é muito usado na América do Sul; no México, é mais comum **va** ou **órale**.',
-    },
-
-    { type: 'heading', text: 'Pensar em voz alta' },
-    {
-      type: 'text',
-      text: 'Quem digita deve narrar o que está fazendo. Assim quem guia acompanha sem precisar perguntar.',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: '**Voy a** crear una función para esto.', pt: 'Vou criar uma função para isso.' },
-        { es: '**A ver** qué devuelve…', pt: 'Vamos ver o que retorna…' },
-        { es: 'Esto es raro, **¿lo ves?**', pt: 'Isso é estranho, está vendo?' },
+      type: 'card',
+      blocks: [
+        {
+          type: 'text',
+          text: 'No pair, uma pessoa digita (**lleva el teclado**, o driver) e a outra guia (o navigator). Os termos em inglês são usados, mas as frases do dia a dia são em espanhol.',
+        },
       ],
     },
 
-    { type: 'heading', text: 'Pausas' },
     {
-      type: 'examples',
-      items: [
-        { es: '**¿Hacemos una pausa** de cinco minutos?', pt: 'Fazemos uma pausa de cinco minutos?' },
-        { es: '**Vuelvo en** cinco.', pt: 'Volto em cinco.' },
-        { es: '**Ya volví.**', pt: 'Voltei.' },
+      type: 'card',
+      title: 'Começar e trocar',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**¿Quién comparte pantalla?**', 'Quem compartilha a tela?'],
+            ['**Comparto yo.**', 'Eu compartilho.'],
+            ['**¿Ves mi pantalla?**', 'Está vendo minha tela?'],
+            ['**¿Me pasas el teclado?**', 'Me passa o teclado?'],
+            ['**Te paso el control.**', 'Te passo o controle.'],
+            ['**¿Cambiamos?**', 'Vamos trocar?'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~Comparto la tela~~ → Comparto la **pantalla**. Em espanhol, tela é tecido.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Guiar',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**Baja** un poco. / **Sube.**', 'Desce um pouco. / Sobe.'],
+            ['**Ahí.** / **Justo ahí.**', 'Aí. / Bem aí.'],
+            ['**En la línea** 42.', 'Na linha 42.'],
+            ['**Abre** el archivo de config.', 'Abre o arquivo de config.'],
+            ['**Espera**, vuelve atrás.', 'Espera, volta.'],
+            ['**Dale.**', 'Vai. / Pode mandar.'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Para pedir algo a "tú", use a mesma forma do "él" no presente: él **abre** → **abre** el archivo. **Dale** é muito usado na América do Sul; no México, é mais comum **va** ou **órale**.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Pensar em voz alta',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Quem digita deve narrar o que está fazendo. Assim quem guia acompanha sem precisar perguntar.',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: '**Voy a** crear una función para esto.', pt: 'Vou criar uma função para isso.' },
+            { es: '**A ver** qué devuelve…', pt: 'Vamos ver o que retorna…' },
+            { es: 'Esto es raro, **¿lo ves?**', pt: 'Isso é estranho, está vendo?' },
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Pausas',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '**¿Hacemos una pausa** de cinco minutos?', pt: 'Fazemos uma pausa de cinco minutos?' },
+            { es: '**Vuelvo en** cinco.', pt: 'Volto em cinco.' },
+            { es: '**Ya volví.**', pt: 'Voltei.' },
+          ],
+        },
       ],
     },
   ],

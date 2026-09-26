@@ -6,76 +6,101 @@ export const avisarRetraso: Section = {
   summary: 'Como avisar cedo que algo vai atrasar, explicar o motivo e propor uma saída.',
   blocks: [
     {
-      type: 'text',
-      text: 'Atrasos acontecem. O time só precisa saber cedo, com um motivo e uma proposta. A ordem é **aviso → motivo → propuesta**.',
-    },
-
-    { type: 'heading', text: 'Avisar' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**Les aviso que**…', 'Aviso vocês que…'],
-        ['**No voy a llegar** para el viernes.', 'Não vou conseguir entregar até sexta.'],
-        ['**Se va a retrasar** un día.', 'Vai atrasar um dia.'],
-        ['**Necesito más tiempo** para los tests.', 'Preciso de mais tempo para os testes.'],
-        ['**Va a estar listo** el lunes.', 'Vai ficar pronto na segunda.'],
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: '**Te aviso** para uma pessoa, **les aviso** para o time. "No voy a llegar" é chegar ao prazo, o jeito mais natural de dizer "não vou conseguir".',
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~Desculpa la demora~~ → **Perdón por** la demora / **Disculpa** la demora.',
-    },
-
-    { type: 'heading', text: 'Explicar o motivo' },
-    {
-      type: 'examples',
-      items: [
-        { es: 'Es **más complejo de lo que pensé**.', pt: 'É mais complexo do que pensei.' },
-        { es: '**Apareció** un bug en la integración con pagos.', pt: 'Apareceu um bug na integração com pagamentos.' },
-        { es: '**Estoy esperando** el acceso desde el martes.', pt: 'Estou esperando o acesso desde terça.' },
-        { es: 'Terminé el backend, **pero** el front **todavía** no.', pt: 'Terminei o backend, mas o front ainda não.' },
-      ],
-    },
-
-    { type: 'heading', text: 'Propor uma saída' },
-    {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**Puedo entregar** una primera versión el viernes.', 'Posso entregar uma primeira versão na sexta.'],
-        ['**Propongo** dejar el PDF para el próximo sprint.', 'Proponho deixar o PDF para o próximo sprint.'],
-        ['**Podemos sacar** los gráficos del alcance.', 'Podemos tirar os gráficos do escopo.'],
-        ['**¿Qué les parece si**…?', 'O que acham se…?'],
-      ],
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: '¿**Qué les parece si** lo dividimos en dos tickets?', pt: 'O que acham de dividirmos em dois tickets?' },
-      ],
-    },
-
-    { type: 'heading', text: 'A mensagem completa' },
-    {
-      type: 'examples',
-      items: [
+      type: 'card',
+      blocks: [
         {
-          es: 'Hola, equipo. **Les aviso que** el ticket de reportes **se va a retrasar**. La API de pagos devuelve datos incompletos y todavía no sé por qué. **Puedo entregar** la vista sin el PDF el viernes y dejar el PDF para el lunes. **¿Qué les parece?**',
-          pt: 'Oi, time. Aviso que o ticket de relatórios vai atrasar. A API de pagamentos retorna dados incompletos e ainda não sei por quê. Posso entregar a tela sem o PDF na sexta e deixar o PDF para segunda. O que acham?',
+          type: 'text',
+          text: 'Atrasos acontecem. O time só precisa saber cedo, com um motivo e uma proposta. A ordem é **aviso → motivo → propuesta**.',
         },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'tip',
-      text: 'Avise assim que perceber o atraso, não no dia da entrega.',
+      type: 'card',
+      title: 'Avisar',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**Les aviso que**…', 'Aviso vocês que…'],
+            ['**No voy a llegar** para el viernes.', 'Não vou conseguir entregar até sexta.'],
+            ['**Se va a retrasar** un día.', 'Vai atrasar um dia.'],
+            ['**Necesito más tiempo** para los tests.', 'Preciso de mais tempo para os testes.'],
+            ['**Va a estar listo** el lunes.', 'Vai ficar pronto na segunda.'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: '**Te aviso** para uma pessoa, **les aviso** para o time. "No voy a llegar" é chegar ao prazo, o jeito mais natural de dizer "não vou conseguir".',
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~Desculpa la demora~~ → **Perdón por** la demora / **Disculpa** la demora.',
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Explicar o motivo',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: 'Es **más complejo de lo que pensé**.', pt: 'É mais complexo do que pensei.' },
+            { es: '**Apareció** un bug en la integración con pagos.', pt: 'Apareceu um bug na integração com pagamentos.' },
+            { es: '**Estoy esperando** el acceso desde el martes.', pt: 'Estou esperando o acesso desde terça.' },
+            { es: 'Terminé el backend, **pero** el front **todavía** no.', pt: 'Terminei o backend, mas o front ainda não.' },
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'Propor uma saída',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**Puedo entregar** una primera versión el viernes.', 'Posso entregar uma primeira versão na sexta.'],
+            ['**Propongo** dejar el PDF para el próximo sprint.', 'Proponho deixar o PDF para o próximo sprint.'],
+            ['**Podemos sacar** los gráficos del alcance.', 'Podemos tirar os gráficos do escopo.'],
+            ['**¿Qué les parece si**…?', 'O que acham se…?'],
+          ],
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: '¿**Qué les parece si** lo dividimos en dos tickets?', pt: 'O que acham de dividirmos em dois tickets?' },
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'card',
+      title: 'A mensagem completa',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            {
+              es: 'Hola, equipo. **Les aviso que** el ticket de reportes **se va a retrasar**. La API de pagos devuelve datos incompletos y todavía no sé por qué. **Puedo entregar** la vista sin el PDF el viernes y dejar el PDF para el lunes. **¿Qué les parece?**',
+              pt: 'Oi, time. Aviso que o ticket de relatórios vai atrasar. A API de pagamentos retorna dados incompletos e ainda não sei por quê. Posso entregar a tela sem o PDF na sexta e deixar o PDF para segunda. O que acham?',
+            },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Avise assim que perceber o atraso, não no dia da entrega.',
+        },
+      ],
     },
   ],
   quiz: {

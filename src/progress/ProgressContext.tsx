@@ -21,7 +21,12 @@ export function ProgressProvider({ store = localProgressStore, children }: { sto
     [store],
   )
 
-  const value = useMemo(() => ({ isCompleted: (key: string) => key in state, complete }), [state, complete])
+  const reset = useCallback(() => {
+    setState({})
+    store.clear()
+  }, [store])
+
+  const value = useMemo(() => ({ isCompleted: (key: string) => key in state, complete, reset }), [state, complete, reset])
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>
 }

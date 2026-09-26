@@ -6,67 +6,87 @@ export const sugerir: Section = {
   summary: 'Como dar uma sugestão no pair ou no review sem soar como ordem, e como aceitar ou recusar uma.',
   blocks: [
     {
-      type: 'text',
-      text: 'Em pair programming, "cambia eso" soa como ordem. Transformar a frase em pergunta ou usar **podríamos** deixa espaço para a outra pessoa pensar.',
-    },
-    {
-      type: 'table',
-      columns: ['Soa como ordem', 'Soa como sugestão'],
-      rows: [
-        ['Cambia el nombre.', '**¿Qué tal si** cambiamos el nombre?'],
-        ['Usa un map.', '**¿Y si** usamos un map?'],
-        ['Hazlo así.', '**Podríamos** hacerlo así.'],
-        ['Eso está mal.', '**No sé si** eso funciona con valores nulos.'],
+      type: 'card',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Em pair programming, "cambia eso" soa como ordem. Transformar a frase em pergunta ou usar **podríamos** deixa espaço para a outra pessoa pensar.',
+        },
+        {
+          type: 'table',
+          columns: ['Soa como ordem', 'Soa como sugestão'],
+          rows: [
+            ['Cambia el nombre.', '**¿Qué tal si** cambiamos el nombre?'],
+            ['Usa un map.', '**¿Y si** usamos un map?'],
+            ['Hazlo así.', '**Podríamos** hacerlo así.'],
+            ['Eso está mal.', '**No sé si** eso funciona con valores nulos.'],
+          ],
+        },
       ],
     },
 
-    { type: 'heading', text: 'As fórmulas' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['**¿Qué tal si** + presente?', 'Que tal se…?'],
-        ['**¿Y si** + presente?', 'E se…?'],
-        ['**Podríamos** + infinitivo', 'Poderíamos…'],
-        ['**Yo probaría** con…', 'Eu testaria com…'],
-        ['**A lo mejor** es…', 'Talvez seja…'],
-      ],
-    },
-    {
-      type: 'note',
-      tone: 'warning',
-      text: '~~¿Y si probar con un índice?~~ → ¿Y si **probamos** con un índice? Depois de **si**, o verbo vai no presente.',
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      text: '**A lo mejor** usa o verbo normal: **a lo mejor es** el cache. É o jeito mais simples de dizer "talvez".',
-    },
-
-    { type: 'heading', text: 'Perguntar em vez de afirmar' },
-    {
-      type: 'examples',
-      items: [
-        { es: '¿**Por qué** elegiste un array aquí?', pt: 'Por que você escolheu um array aqui?' },
-        { es: '¿**Qué pasa si** la lista viene vacía?', pt: 'O que acontece se a lista vier vazia?' },
-        { es: '¿**Pensaste en** usar un Set?', pt: 'Você pensou em usar um Set?' },
+      type: 'card',
+      title: 'As fórmulas',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['**¿Qué tal si** + presente?', 'Que tal se…?'],
+            ['**¿Y si** + presente?', 'E se…?'],
+            ['**Podríamos** + infinitivo', 'Poderíamos…'],
+            ['**Yo probaría** con…', 'Eu testaria com…'],
+            ['**A lo mejor** es…', 'Talvez seja…'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~¿Y si probar con un índice?~~ → ¿Y si **probamos** con un índice? Depois de **si**, o verbo vai no presente.',
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: '**A lo mejor** usa o verbo normal: **a lo mejor es** el cache. É o jeito mais simples de dizer "talvez".',
+        },
       ],
     },
 
-    { type: 'heading', text: 'Aceitar ou recusar' },
     {
-      type: 'examples',
-      items: [
-        { es: '**Buena idea**, lo cambio.', pt: 'Boa ideia, vou mudar.' },
-        { es: '**Buen punto.** **Tiene sentido.**', pt: 'Bom ponto. Faz sentido.' },
-        { es: '**Lo pensé, pero** el map no mantiene el orden.', pt: 'Pensei nisso, mas o map não mantém a ordem.' },
-        { es: '**Prefiero** dejarlo así por ahora, **porque** es más fácil de leer.', pt: 'Prefiro deixar assim por enquanto, porque é mais fácil de ler.' },
+      type: 'card',
+      title: 'Perguntar em vez de afirmar',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '¿**Por qué** elegiste un array aquí?', pt: 'Por que você escolheu um array aqui?' },
+            { es: '¿**Qué pasa si** la lista viene vacía?', pt: 'O que acontece se a lista vier vazia?' },
+            { es: '¿**Pensaste en** usar un Set?', pt: 'Você pensou em usar um Set?' },
+          ],
+        },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'tip',
-      text: 'Para recusar, dê o motivo. "Lo pensé, pero…" mostra que você considerou a ideia.',
+      type: 'card',
+      title: 'Aceitar ou recusar',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '**Buena idea**, lo cambio.', pt: 'Boa ideia, vou mudar.' },
+            { es: '**Buen punto.** **Tiene sentido.**', pt: 'Bom ponto. Faz sentido.' },
+            { es: '**Lo pensé, pero** el map no mantiene el orden.', pt: 'Pensei nisso, mas o map não mantém a ordem.' },
+            { es: '**Prefiero** dejarlo así por ahora, **porque** es más fácil de leer.', pt: 'Prefiro deixar assim por enquanto, porque é mais fácil de ler.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          text: 'Para recusar, dê o motivo. "Lo pensé, pero…" mostra que você considerou a ideia.',
+        },
+      ],
     },
   ],
   quiz: {

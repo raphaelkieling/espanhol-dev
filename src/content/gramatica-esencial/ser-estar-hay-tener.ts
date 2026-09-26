@@ -6,72 +6,92 @@ export const serEstarHayTener: Section = {
   summary: 'Os quatro verbos que sustentam a maioria das frases, e o "tem" que em espanhol é hay.',
   blocks: [
     {
-      type: 'table',
-      columns: ['', 'ser', 'estar', 'tener'],
-      rows: [
-        ['yo', 'soy', 'estoy', 'tengo'],
-        ['tú', 'eres', 'estás', 'tienes'],
-        ['él / ella / usted', 'es', 'está', 'tiene'],
-        ['nosotros', 'somos', 'estamos', 'tenemos'],
-        ['ellos / ustedes', 'son', 'están', 'tienen'],
-      ],
-      caption: 'Presente. Hay não muda: hay un bug, hay tres bugs.',
-    },
-
-    { type: 'heading', text: 'ser × estar' },
-    {
-      type: 'text',
-      text: 'A divisão é quase a mesma do português: **ser** diz o que algo é, **estar** diz como ou onde algo está agora.',
-    },
-    {
-      type: 'table',
-      columns: ['ser', 'estar'],
-      rows: [
-        ['**Soy** desarrollador backend.', '**Estoy** en una reunión.'],
-        ['**Es** un problema de caché.', 'El servidor **está** caído.'],
-        ['**Son** las diez.', 'El PR **está** listo.'],
-        ['La daily **es** a las diez.', '**Estoy** revisando los logs.'],
+      type: 'card',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['', 'ser', 'estar', 'tener'],
+          rows: [
+            ['yo', 'soy', 'estoy', 'tengo'],
+            ['tú', 'eres', 'estás', 'tienes'],
+            ['él / ella / usted', 'es', 'está', 'tiene'],
+            ['nosotros', 'somos', 'estamos', 'tenemos'],
+            ['ellos / ustedes', 'son', 'están', 'tienen'],
+          ],
+          caption: 'Presente. Hay não muda: hay un bug, hay tres bugs.',
+        },
       ],
     },
-    {
-      type: 'note',
-      tone: 'warning',
-      title: 'listo',
-      text: '**Estar** listo = estar pronto. **Ser** listo = ser esperto. "El deploy **está** listo."',
-    },
 
-    { type: 'heading', text: 'hay: o "tem" de existir' },
     {
-      type: 'text',
-      text: 'Em português dizemos "tem um bug no login". Em espanhol, quando o sentido é **existir**, usa-se **hay**. **Tener** fica só para posse e obrigação.',
-    },
-    {
-      type: 'examples',
-      items: [
-        { es: '**Hay** un bug en el login.', pt: 'Tem um bug no login.' },
-        { es: '¿**Hay** alguna pregunta?', pt: 'Tem alguma pergunta?' },
-        { es: 'No **hay** tests para este módulo.', pt: 'Não tem testes para este módulo.' },
+      type: 'card',
+      title: 'ser × estar',
+      blocks: [
+        {
+          type: 'text',
+          text: 'A divisão é quase a mesma do português: **ser** diz o que algo é, **estar** diz como ou onde algo está agora.',
+        },
+        {
+          type: 'table',
+          columns: ['ser', 'estar'],
+          rows: [
+            ['**Soy** desarrollador backend.', '**Estoy** en una reunión.'],
+            ['**Es** un problema de caché.', 'El servidor **está** caído.'],
+            ['**Son** las diez.', 'El PR **está** listo.'],
+            ['La daily **es** a las diez.', '**Estoy** revisando los logs.'],
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          title: 'listo',
+          text: '**Estar** listo = estar pronto. **Ser** listo = ser esperto. "El deploy **está** listo."',
+        },
       ],
     },
+
     {
-      type: 'note',
-      tone: 'warning',
-      text: '~~Tiene un bug en el login~~ → **Hay** un bug en el login.',
-    },
-    {
-      type: 'note',
-      tone: 'tip',
-      title: 'hay × está',
-      text: 'Algo novo, com un/una ou número: **hay** un error. Algo já conhecido, com el/la: **el** error **está** en el archivo de config.',
+      type: 'card',
+      title: 'hay: o "tem" de existir',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Em português dizemos "tem um bug no login". Em espanhol, quando o sentido é **existir**, usa-se **hay**. **Tener** fica só para posse e obrigação.',
+        },
+        {
+          type: 'examples',
+          items: [
+            { es: '**Hay** un bug en el login.', pt: 'Tem um bug no login.' },
+            { es: '¿**Hay** alguna pregunta?', pt: 'Tem alguma pergunta?' },
+            { es: 'No **hay** tests para este módulo.', pt: 'Não tem testes para este módulo.' },
+          ],
+        },
+        {
+          type: 'note',
+          tone: 'warning',
+          text: '~~Tiene un bug en el login~~ → **Hay** un bug en el login.',
+        },
+        {
+          type: 'note',
+          tone: 'tip',
+          title: 'hay × está',
+          text: 'Algo novo, com un/una ou número: **hay** un error. Algo já conhecido, com el/la: **el** error **está** en el archivo de config.',
+        },
+      ],
     },
 
-    { type: 'heading', text: 'tener y tener que' },
     {
-      type: 'examples',
-      items: [
-        { es: '**Tengo** una duda sobre el ticket.', pt: 'Tenho uma dúvida sobre o ticket.' },
-        { es: '**Tengo que** salir a las cinco.', pt: 'Tenho que sair às cinco.' },
-        { es: '**Tenemos que** hablar con producto.', pt: 'Temos que falar com produto.' },
+      type: 'card',
+      title: 'tener y tener que',
+      blocks: [
+        {
+          type: 'examples',
+          items: [
+            { es: '**Tengo** una duda sobre el ticket.', pt: 'Tenho uma dúvida sobre o ticket.' },
+            { es: '**Tengo que** salir a las cinco.', pt: 'Tenho que sair às cinco.' },
+            { es: '**Tenemos que** hablar con producto.', pt: 'Temos que falar com produto.' },
+          ],
+        },
       ],
     },
   ],

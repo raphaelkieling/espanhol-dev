@@ -19,17 +19,22 @@ export const historiaPatoDeGoma: Section = {
       ],
     },
 
-    { type: 'heading', text: 'Palavras do texto' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['a veces', 'às vezes'],
-        ['el pedido', 'o pedido (de compra)'],
-        ['y para', 'e para (verbo parar)'],
-        ['hacer de', 'fazer o papel de'],
-        ['el pato de goma', 'o pato de borracha'],
-        ['tú solo', 'sozinho'],
+      type: 'card',
+      title: 'Palavras do texto',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['a veces', 'às vezes'],
+            ['el pedido', 'o pedido (de compra)'],
+            ['y para', 'e para (verbo parar)'],
+            ['hacer de', 'fazer o papel de'],
+            ['el pato de goma', 'o pato de borracha'],
+            ['tú solo', 'sozinho'],
+          ],
+        },
       ],
     },
   ],

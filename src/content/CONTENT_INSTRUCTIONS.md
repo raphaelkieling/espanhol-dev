@@ -30,6 +30,7 @@ src/content/
   types.ts                 content model (Block, Question, Quiz, Section, Module)
   helpers.ts               upcoming(), hasContent(), moduleSections()…
   modules.ts               the list of modules
+  words.ts                 vocabulary for the dictionary page
   <module-slug>/
     index.ts               ordered list of the module's sections
     <section-slug>.ts      one file per section
@@ -40,7 +41,8 @@ src/content/
 
 1. Create `src/content/<module-slug>/<section-slug>.ts` that exports a `Section`. Use `articulos.ts` as a reference.
 2. In the module's `index.ts`, replace the matching `upcoming('…')` with the import.
-3. Run `npm run build`.
+3. Add the new vocabulary to `words.ts` (see [Dictionary](#dictionary)).
+4. Run `npm run build`.
 
 Sections still defined with `upcoming(title)` show as "Próximamente" and can't be opened.
 
@@ -58,13 +60,14 @@ export const example: Section = {
 
 - **Slug:** stable, lowercase, no accents. It is the URL and the progress key (`<module>/<section>`), so don't rename it once published.
 - **Length:** aim for a 5–10 minute read. If a topic needs more, split it into two sections.
-- **Flow:** a short text, then a table or examples, then a note about the most common mistake a Portuguese speaker makes. Repeat per sub-topic under a `heading`.
+- **Flow:** a short text, then a table or examples, then a note about the most common mistake a Portuguese speaker makes. Wrap each sub-topic in its own `card` with a short `title`. Opening text before the first sub-topic goes in a `card` without a title.
 
 ### Blocks
 
 | Type | Use for |
 |---|---|
-| `heading` | Sub-topics inside the section. Short. |
+| `card` | A white card around one sub-topic. Optional short `title`, and `blocks` with the sub-topic's content. Every explanation block lives inside a card; only `reading` stays outside. |
+| `heading` | Legacy. Use a `card` with `title` instead. |
 | `text` | 1–3 sentences. If it gets longer, it probably should be a table or examples. |
 | `table` | Conjugations, Portuguese → Spanish comparisons, rules with an example each. Keep it to about 3 columns and up to 10 rows. Optional `caption` for a one-line takeaway. |
 | `examples` | Spanish sentences (`es`) with an optional Portuguese translation (`pt`). 2–4 items. |
@@ -109,6 +112,29 @@ A reading puts the module's rules into a real text and is the last lesson of the
 - Passing requires **every answer to be right** (enforced by the code, so don't set `passScore`). That makes ambiguity even more costly: every question needs exactly one correct answer.
 - Passing the exam shows the check on the module's home card.
 
+## Dictionary
+
+The footer links to `/diccionario`, a table of every word the course teaches. It also has a button to export the list to Anki. The list lives in `src/content/words.ts`.
+
+**Whenever you add or change content, add the new words to `words.ts`.** That includes new sections, readings ("Palavras do texto"), and new words added to existing sections.
+
+```ts
+{
+  es: 'todavía',
+  context: 'Na daily, para dizer o que ainda falta',
+  pt: 'ainda',
+  examples: ['**Todavía** no terminé el PR.'],
+  module: 2,
+},
+```
+
+- `es`: the word or short expression in dictionary form (`hacer un deploy`, not `hice el deploy`).
+- `context`: where or how it's used at work, in Portuguese, under ~70 characters. For false friends, say what it is not.
+- `pt`: the meaning in Portuguese, short.
+- `examples`: 1–2 Spanish sentences from real work, ideally taken from the lesson, with the word in `**bold**`.
+- `module`: the id of the module that teaches it. Keep entries grouped in module order, and don't repeat a word that an earlier module already has.
+- Only add words the lessons actually teach. Skip pure grammar (article tables, conjugation endings).
+
 ## Adding a module
 
 Add an entry to `modules.ts` with `id`, `slug`, `title`, `subtitle`, `days`, `icon`, `sections` and later `exam`. The icon is a 320px PNG from [thiings.co](https://www.thiings.co/things) saved in `public/icons/` and referenced with `icon('<name>')`.
@@ -120,4 +146,5 @@ Add an entry to `modules.ts` with `id`, `slug`, `title`, `subtitle`, `days`, `ic
 - [ ] The most common Portuguese-speaker mistake is covered in a `warning` note.
 - [ ] Quiz has 4–5 questions (the exam has 10), each with one unambiguous answer and an explanation.
 - [ ] The correct answer isn't always in the same position.
+- [ ] New vocabulary is in `words.ts`.
 - [ ] `npm run build` passes.

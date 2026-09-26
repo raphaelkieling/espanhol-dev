@@ -18,19 +18,24 @@ export const leyendaElDorado: Section = {
       ],
     },
 
-    { type: 'heading', text: 'Palavras do texto' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['la laguna', 'a lagoa'],
-        ['el jefe', 'o chefe (aqui, o líder do povo)'],
-        ['el polvo', 'o pó'],
-        ['la balsa', 'a jangada'],
-        ['tirar', 'jogar, atirar'],
-        ['la selva', 'a floresta'],
-        ['vaciar', 'esvaziar'],
-        ['todavía', 'ainda'],
+      type: 'card',
+      title: 'Palavras do texto',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['la laguna', 'a lagoa'],
+            ['el jefe', 'o chefe (aqui, o líder do povo)'],
+            ['el polvo', 'o pó'],
+            ['la balsa', 'a jangada'],
+            ['tirar', 'jogar, atirar'],
+            ['la selva', 'a floresta'],
+            ['vaciar', 'esvaziar'],
+            ['todavía', 'ainda'],
+          ],
+        },
       ],
     },
   ],

@@ -19,18 +19,23 @@ export const historiaDemo: Section = {
       ],
     },
 
-    { type: 'heading', text: 'Palavras do texto' },
     {
-      type: 'table',
-      columns: ['Español', 'Português'],
-      rows: [
-        ['el correo', 'o e-mail'],
-        ['levantar la mano', 'levantar a mão'],
-        ['ponerse nervioso', 'ficar nervoso'],
-        ['por suerte', 'por sorte'],
-        ['soportar', 'aguentar, suportar'],
-        ['quiso decir', 'quis dizer'],
-        ['sobrevivir', 'sobreviver'],
+      type: 'card',
+      title: 'Palavras do texto',
+      blocks: [
+        {
+          type: 'table',
+          columns: ['Español', 'Português'],
+          rows: [
+            ['el correo', 'o e-mail'],
+            ['levantar la mano', 'levantar a mão'],
+            ['ponerse nervioso', 'ficar nervoso'],
+            ['por suerte', 'por sorte'],
+            ['soportar', 'aguentar, suportar'],
+            ['quiso decir', 'quis dizer'],
+            ['sobrevivir', 'sobreviver'],
+          ],
+        },
       ],
     },
   ],
