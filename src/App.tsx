@@ -1,15 +1,9 @@
 import { useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { useProgress } from './progress/ProgressContext'
 import ThemeToggle from './components/ThemeToggle'
 
 export default function App() {
   const { pathname } = useLocation()
-  const { reset } = useProgress()
-
-  const confirmReset = () => {
-    if (window.confirm('¿Borrar todo tu progreso? Las secciones y pruebas completadas vuelven a cero.')) reset()
-  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -32,9 +26,7 @@ export default function App() {
         </span>
         <nav className="footer__links">
           <Link to="/diccionario">Diccionario</Link>
-          <button type="button" className="footer__reset" onClick={confirmReset}>
-            Reiniciar progreso
-          </button>
+          <Link to="/configuracion">Configuración</Link>
         </nav>
       </footer>
     </div>

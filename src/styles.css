@@ -931,8 +931,7 @@ a.sections__item:hover {
   gap: 12px 24px;
 }
 
-.footer a,
-.footer__reset {
+.footer a {
   text-decoration: underline;
 }
 
@@ -941,22 +940,11 @@ a.sections__item:hover {
   gap: 20px;
 }
 
-.footer__reset {
-  font: inherit;
-  color: inherit;
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
 
 .footer__links a:hover {
   color: var(--text);
 }
 
-.footer__reset:hover {
-  color: var(--red);
-}
 
 /* Words */
 .words__head {
@@ -1050,5 +1038,70 @@ a.sections__item:hover {
   .quiz,
   .block-card {
     padding: 24px 20px;
+  }
+}
+
+/* Settings */
+.settings__section {
+  margin-top: 40px;
+}
+
+.settings__section-title {
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.settings__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.settings__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+}
+
+.settings__row + .settings__row {
+  border-top: 1px solid var(--border);
+}
+
+.settings__label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.settings__description {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.settings__action {
+  flex-shrink: 0;
+}
+
+.button--danger {
+  color: var(--red);
+  background: var(--red-soft);
+}
+
+.button--danger:hover {
+  color: #fff;
+  background: var(--red);
+}
+
+@media (max-width: 560px) {
+  .settings__row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
