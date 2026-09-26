@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useProgress } from './progress/ProgressContext'
+import ThemeToggle from './components/ThemeToggle'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -20,6 +21,7 @@ export default function App() {
         <Link to="/" className="brand">
           Español<span>/</span>devs
         </Link>
+        <ThemeToggle />
       </header>
       <main>
         <Outlet />
