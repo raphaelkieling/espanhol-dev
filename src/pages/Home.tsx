@@ -4,10 +4,10 @@ import { modules } from '../content/modules'
 export default function Home() {
   return (
     <>
-      <section className="hero">
+      {/* <section className="hero">
         <h1 className="hero__title">Español para devs</h1>
         <p className="hero__meta">{modules.length} módulos · 7 días</p>
-      </section>
+      </section> */}
 
       <div className="grid">
         {modules.map((m) => (
