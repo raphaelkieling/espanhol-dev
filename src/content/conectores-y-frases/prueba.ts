@@ -21,7 +21,7 @@ export const pruebaConectores: Quiz = {
       explanation: 'Contraste sem negação antes: **pero**. Todavía significa ainda.',
     },
     {
-      prompt: '___ del frontend, también hago infraestructura.',
+      prompt: '___ frontend, también hago infraestructura.',
       options: ['Además', 'Además de', 'Además del'],
       answer: 2,
       explanation: 'Além de + el = **además del**.',

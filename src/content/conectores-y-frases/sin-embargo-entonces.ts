@@ -95,6 +95,28 @@ export const sinEmbargoEntonces: Section = {
         },
       ],
     },
+
+    {
+      type: 'card',
+      title: 'Practica',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Escreva o conector que falta. A tradução ajuda a escolher entre eles.',
+        },
+        {
+          type: 'fill',
+          items: [
+            { es: 'El cambio parece simple. ___, rompe los tests de integración.', answer: ['Sin embargo', 'No obstante'], pt: 'A mudança parece simples. No entanto, quebra os testes de integração.' },
+            { es: 'El build tardaba mucho, ___ activé la caché.', answer: ['por eso', 'así que'], pt: 'O build demorava muito, por isso ativei o cache.' },
+            { es: '___, ¿cerramos el ticket?', answer: 'Entonces', pt: 'Então, fechamos o ticket?' },
+            { es: 'La API devuelve 429, ___, estamos pasando el límite.', answer: ['o sea', 'es decir'], pt: 'A API devolve 429, ou seja, estamos passando do limite.' },
+            { es: 'Usamos soft delete, ___, los registros nunca se borran de verdad.', answer: ['es decir', 'o sea'], pt: 'Usamos soft delete, isto é, os registros nunca são apagados de verdade.' },
+            { es: 'Hoy tengo el día lleno de reuniones, ___ reviso tu PR mañana.', answer: ['así que', 'por eso', 'entonces'], pt: 'Hoje meu dia está cheio de reuniões, então reviso seu PR amanhã.' },
+          ],
+        },
+      ],
+    },
   ],
   quiz: {
     questions: [
