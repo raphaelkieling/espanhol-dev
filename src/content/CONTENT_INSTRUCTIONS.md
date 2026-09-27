@@ -72,6 +72,7 @@ export const example: Section = {
 | `table` | Conjugations, Portuguese → Spanish comparisons, rules with an example each. Keep it to about 3 columns and up to 10 rows. Optional `caption` for a one-line takeaway. |
 | `examples` | Spanish sentences (`es`) with an optional Portuguese translation (`pt`). 2–4 items. |
 | `note` | `tone: 'warning'` for common mistakes and false friends. `tone: 'tip'` for shortcuts and context. Optional short `title`. |
+| `fill` | Typing practice. Each item is a Spanish sentence (`es`) with a `___` gap, the `answer` (a string or a list of accepted alternatives) and an optional Portuguese `pt` that makes the answer unambiguous. Matching ignores case and accents. Put it in its own `card` titled "Practica", after the explanation. |
 | `reading` | A short text in Spanish (`paragraphs`) with an optional `title` and `audio`. Use `[[…|…]]` highlights to point at the rules from the module. |
 
 ### Inline marks

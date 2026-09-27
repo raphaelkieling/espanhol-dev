@@ -94,6 +94,32 @@ export const serEstarHayTener: Section = {
         },
       ],
     },
+
+    {
+      type: 'card',
+      title: 'Practica',
+      blocks: [
+        {
+          type: 'text',
+          text: 'Escreva o verbo que falta: **ser**, **estar**, **hay** ou **tener**, já conjugado.',
+        },
+        {
+          type: 'fill',
+          items: [
+            { es: 'Yo ___ desarrollador backend.', answer: 'soy', pt: 'Eu sou desenvolvedor backend.' },
+            { es: 'El servidor ___ caído desde anoche.', answer: 'está', pt: 'O servidor está fora do ar desde ontem à noite.' },
+            { es: '___ un bug en el formulario de login.', answer: 'Hay', pt: 'Tem um bug no formulário de login.' },
+            { es: 'Mañana yo ___ que presentar la demo.', answer: 'tengo', pt: 'Amanhã eu tenho que apresentar a demo.' },
+            { es: '¿Dónde ___ los logs del deploy?', answer: 'están', pt: 'Onde estão os logs do deploy?' },
+            { es: 'La daily ___ a las diez.', answer: 'es', pt: 'A daily é às dez.' },
+            { es: '¿___ alguna pregunta?', answer: 'Hay', pt: 'Tem alguma pergunta?' },
+            { es: 'Tú ___ una duda sobre el ticket, ¿no?', answer: 'tienes', pt: 'Você tem uma dúvida sobre o ticket, né?' },
+            { es: 'El PR ya ___ listo para review.', answer: 'está', pt: 'O PR já está pronto para review.' },
+            { es: 'Ellos ___ del equipo de pagos.', answer: 'son', pt: 'Eles são do time de pagamentos.' },
+          ],
+        },
+      ],
+    },
   ],
   quiz: {
     questions: [

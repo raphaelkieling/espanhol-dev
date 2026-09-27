@@ -11,6 +11,11 @@ export type Block =
   | { type: 'table'; columns: string[]; rows: string[][]; caption?: string }
   | { type: 'note'; tone?: 'tip' | 'warning'; title?: string; text: string }
   | { type: 'examples'; items: { es: string; pt?: string }[] }
+  /**
+   * Typing exercise: each sentence has a ___ gap and the learner types the missing word.
+   * `answer` accepts alternatives; matching ignores case and accents.
+   */
+  | { type: 'fill'; items: { es: string; answer: string | string[]; pt?: string }[] }
   | {
       type: 'reading'
       title?: string

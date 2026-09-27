@@ -1,5 +1,6 @@
 import type { Block } from '../../content/types'
 import AudioPlayer from '../AudioPlayer'
+import FillBlank from '../FillBlank'
 import Rich from '../Rich'
 
 function BlockView({ block }: { block: Block }) {
@@ -71,6 +72,14 @@ function BlockView({ block }: { block: Block }) {
             </li>
           ))}
         </ul>
+      )
+    case 'fill':
+      return (
+        <ol className="block-fill">
+          {block.items.map((item, i) => (
+            <FillBlank key={i} {...item} />
+          ))}
+        </ol>
       )
     case 'reading':
       return (
