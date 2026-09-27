@@ -30,9 +30,17 @@ export default function App() {
         <Outlet />
       </main>
       <footer className="footer">
-        <span>
-          Iconos de <a href="https://www.thiings.co/things" target="_blank" rel="noreferrer">Thiings</a>
-        </span>
+        <div className="footer__credits">
+          <span>
+            Iconos de <a href="https://www.thiings.co/things" target="_blank" rel="noreferrer">Thiings</a>
+          </span>
+          <span>
+            Hecho por{' '}
+            <a href="https://github.com/raphaelkieling" target="_blank" rel="noreferrer">
+              raphaelkieling
+            </a>
+          </span>
+        </div>
         <nav className="footer__links">
           <Link to="/diccionario">Diccionario</Link>
         </nav>

@@ -1080,6 +1080,12 @@ a.sections__item:hover {
   text-decoration: underline;
 }
 
+.footer__credits {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .footer__links {
   display: flex;
   gap: 20px;
