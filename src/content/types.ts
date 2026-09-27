@@ -1,6 +1,6 @@
 /**
  * Content model shared by every module.
- * Text fields accept inline marks: **bold**, ~~strike~~ and [[highlight|note]].
+ * Text fields accept inline marks: **bold**, ~~strike~~, [[highlight|note]] and [link](url).
  */
 
 export type Block =

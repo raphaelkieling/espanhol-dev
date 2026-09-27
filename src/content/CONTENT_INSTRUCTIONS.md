@@ -81,6 +81,7 @@ All text fields accept:
 
 - `**bold**` to highlight the word being taught. Bold the target form only, not whole sentences.
 - `~~strike~~` for the wrong form, usually followed by `→` and the right one: `~~Reviso él~~ → **Lo** reviso.`
+- `[text](https://…)` links to an external site, opening in a new tab. Use it for tools and references, not inside exercises.
 - `[[text|note]]` highlights `text` and shows `note` (Portuguese, a few words) on hover or tap. It's meant for `reading` blocks: `[[al agua|a + el = al]]`.
 
 ## Reading sections

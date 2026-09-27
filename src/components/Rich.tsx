@@ -1,9 +1,9 @@
 /**
  * Renders inline marks used in content:
- * **bold**, ~~strike~~ and [[highlighted text|note shown on hover]].
+ * **bold**, ~~strike~~, [[highlighted text|note shown on hover]] and [link text](https://…).
  */
 export default function Rich({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*|~~[^~]+~~|\[\[[^\]]+\]\])/g)
+  const parts = text.split(/(\*\*[^*]+\*\*|~~[^~]+~~|\[\[[^\]]+\]\]|\[[^\]]+\]\([^)]+\))/g)
   return (
     <>
       {parts.map((part, i) => {
@@ -17,6 +17,13 @@ export default function Rich({ text }: { text: string }) {
             </mark>
           )
         }
+        const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+        if (link)
+          return (
+            <a key={i} className="rich-link" href={link[2]} target="_blank" rel="noreferrer">
+              {link[1]}
+            </a>
+          )
         return part
       })}
     </>

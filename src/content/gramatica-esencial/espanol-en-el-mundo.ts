@@ -3,7 +3,7 @@ import type { Section } from '../types'
 export const espanolEnElMundo: Section = {
   slug: 'el-espanol-en-el-mundo',
   title: 'El español en el mundo',
-  summary: 'Um idioma, muitos sotaques, e qual deles este curso usa.',
+  summary: 'Um idioma, muitos sotaques, e qual deles este guia usa.',
   blocks: [
     {
       type: 'card',
@@ -15,8 +15,8 @@ export const espanolEnElMundo: Section = {
         {
           type: 'note',
           tone: 'tip',
-          title: 'Foco deste curso',
-          text: 'Os exemplos seguem o espanhol da **América Latina**, onde estão cerca de 9 em cada 10 falantes. Quando a Espanha fizer diferente em algo que você vai ouvir no trabalho, aparece uma nota.',
+          title: 'Foco deste guia',
+          text: 'Os exemplos seguem o espanhol da **América Latina**, onde estão cerca de 9 em cada 10 falantes.',
         },
       ],
     },

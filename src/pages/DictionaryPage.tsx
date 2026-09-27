@@ -20,7 +20,7 @@ export default function DictionaryPage() {
       <header className="words__head">
         <div>
           <h1 className="module__title">Diccionario</h1>
-          <p className="module__subtitle">{words.length} palabras del curso</p>
+          <p className="module__subtitle">{words.length} palabras del guia</p>
         </div>
       </header>
 
