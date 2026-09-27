@@ -14,7 +14,6 @@ export default function ModuleCard({ module, featured = false, locked = false }:
   const content = (
     <>
       <span className="card__number">{pad(module.id)}</span>
-      <span className="card__days">{module.days}</span>
       <img className="card__icon" src={module.icon} alt="" loading="lazy" />
       <div className="card__text">
         <h3 className="card__title">{module.title}</h3>

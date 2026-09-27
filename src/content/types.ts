@@ -54,7 +54,6 @@ export type Module = {
   slug: string
   title: string
   subtitle: string
-  days: string
   icon: string
   sections: Section[]
   /** Final exam covering the whole module. Passing requires every answer right. */

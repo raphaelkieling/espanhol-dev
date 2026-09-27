@@ -30,7 +30,7 @@ function ModuleView({ module }: { module: Module }) {
         <img className="module__icon" src={module.icon} alt="" />
         <div>
           <span className="module__number">
-            {pad(module.id)} · {module.days} · {done}/{total}
+            {pad(module.id)} · {done}/{total}
           </span>
           <h1 className="module__title">{module.title}</h1>
           <p className="module__subtitle">{module.subtitle}</p>

@@ -1,6 +1,6 @@
 # Content instructions
 
-How to write and add course content. The site is a 7-day course that gets Brazilian (Portuguese-speaking) developers working day to day in Spanish.
+How to write and add course content. The site is a short, last-minute course that gets Brazilian (Portuguese-speaking) developers working day to day in Spanish.
 
 ## Audience and goal
 
@@ -139,7 +139,7 @@ The footer links to `/diccionario`, a table of every word the course teaches. It
 
 ## Adding a module
 
-Add an entry to `modules.ts` with `id`, `slug`, `title`, `subtitle`, `days`, `icon`, `sections` and later `exam`. The icon is a 320px PNG from [thiings.co](https://www.thiings.co/things) saved in `public/icons/` and referenced with `icon('<name>')`.
+Add an entry to `modules.ts` with `id`, `slug`, `title`, `subtitle`, `icon`, `sections` and later `exam`. The icon is a 320px PNG from [thiings.co](https://www.thiings.co/things) saved in `public/icons/` and referenced with `icon('<name>')`.
 
 ## Checklist before publishing
 

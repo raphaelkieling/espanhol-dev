@@ -16,7 +16,7 @@ export default function Home() {
     <>
       {/* <section className="hero">
         <h1 className="hero__title">Español para devs</h1>
-        <p className="hero__meta">{modules.length} módulos · 7 días</p>
+        <p className="hero__meta">{modules.length} módulos</p>
       </section> */}
 
       <div className="grid">
