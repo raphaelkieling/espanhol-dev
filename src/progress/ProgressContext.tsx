@@ -1,5 +1,7 @@
 import { useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { moduleSections } from '../content/helpers'
+import { hasContent, moduleSections } from '../content/helpers'
+import { INTRO_KEY } from '../content/introduccion'
+import { modules } from '../content/modules'
 import type { Module } from '../content/types'
 import { ProgressContext } from './context'
 import { localProgressStore, sectionKey, type ProgressState, type ProgressStore } from './store'
@@ -46,4 +48,15 @@ export function useModuleProgress(module: Module) {
   /** Completion of each lesson section, in order (exam excluded). */
   const lessons = sections.filter((s) => s.kind !== 'exam').map(completed)
   return { done, total: sections.length, examPassed, lessons }
+}
+
+/** Progress across the whole course: the intro plus every module section that can be opened. */
+export function useCourseProgress() {
+  const { isCompleted } = useProgress()
+  const keys = [
+    INTRO_KEY,
+    ...modules.flatMap((m) => moduleSections(m).filter(hasContent).map((s) => sectionKey(m.slug, s.slug))),
+  ]
+  const done = keys.filter(isCompleted).length
+  return { done, total: keys.length }
 }

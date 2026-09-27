@@ -4,13 +4,15 @@ import ModuleCard from '../components/ModuleCard'
 import { INTRO_KEY } from '../content/introduccion'
 import { EXAM_SLUG } from '../content/helpers'
 import { modules } from '../content/modules'
-import { useProgress } from '../progress/ProgressContext'
+import { useCourseProgress, useProgress } from '../progress/ProgressContext'
 import { sectionKey } from '../progress/store'
 import { useSetting } from '../settings/settings'
 
 export default function Home() {
   const { isCompleted } = useProgress()
   const [lockModules] = useSetting('lockModules')
+  const { done, total } = useCourseProgress()
+  const percent = Math.round((done / total) * 100)
 
   return (
     <>
@@ -18,6 +20,18 @@ export default function Home() {
         <h1 className="hero__title">Español para devs</h1>
         <p className="hero__meta">{modules.length} módulos</p>
       </section> */}
+
+      <section className="course-progress" aria-label="Progreso del curso">
+        <div className="course-progress__head">
+          <span className="course-progress__label">Tu progreso</span>
+          <span className="course-progress__count">
+            {done} de {total} secciones · <strong>{percent}%</strong>
+          </span>
+        </div>
+        <div className="course-progress__track" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={done}>
+          <span className="course-progress__fill" style={{ width: `${percent}%` }} />
+        </div>
+      </section>
 
       <div className="grid">
         <Link to="/introduccion" className="card card--intro">

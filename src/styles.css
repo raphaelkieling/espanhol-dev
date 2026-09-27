@@ -150,6 +150,51 @@ a {
   color: var(--muted);
 }
 
+/* Course progress */
+.course-progress {
+  margin-bottom: 24px;
+}
+
+.course-progress__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.course-progress__label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.course-progress__count {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.course-progress__count strong {
+  color: var(--text);
+}
+
+.course-progress__track {
+  height: 8px;
+  overflow: hidden;
+  background: var(--faint);
+  border-radius: 999px;
+}
+
+.course-progress__fill {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
 /* Grid: two per row, the first module wider */
 .grid {
   display: grid;
