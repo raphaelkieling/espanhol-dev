@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BookOpen } from 'lucide-react'
 import type { Quiz as QuizData } from '../content/types'
 import CheckIcon from './CheckIcon'
 import Rich from './Rich'
@@ -42,11 +43,7 @@ export default function Quiz({ quiz, completed, onPass, title = 'Desafío', succ
       <header className="quiz__head">
         <h2 className="quiz__title">
           <span className="quiz__icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="5" y="4" width="14" height="17" rx="2.5" />
-              <path d="M9 4V3h6v1" />
-              <path d="m9 12.5 2 2 4-4" />
-            </svg>
+            <BookOpen size={16} strokeWidth={2.2} />
           </span>
           {title}
         </h2>

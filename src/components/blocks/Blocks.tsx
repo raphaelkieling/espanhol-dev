@@ -1,3 +1,4 @@
+import { Dumbbell, MessageSquare } from 'lucide-react'
 import type { Block } from '../../content/types'
 import AudioPlayer from '../AudioPlayer'
 import FillBlank from '../FillBlank'
@@ -7,13 +8,24 @@ function BlockView({ block }: { block: Block }) {
   switch (block.type) {
     case 'heading':
       return <h2 className="block-heading">{block.text}</h2>
-    case 'card':
+    case 'card': {
+      const isPractice = block.blocks.some((b) => b.type === 'fill')
       return (
         <section className="block-card">
-          {block.title && <h2 className="block-card__title">{block.title}</h2>}
+          {block.title && (
+            <h2 className="block-card__title">
+              {isPractice && (
+                <span className="block-card__icon" aria-hidden="true">
+                  <Dumbbell size={16} strokeWidth={2.2} />
+                </span>
+              )}
+              {block.title}
+            </h2>
+          )}
           <Blocks blocks={block.blocks} />
         </section>
       )
+    }
     case 'text':
       return (
         <p className="block-text">
@@ -61,9 +73,7 @@ function BlockView({ block }: { block: Block }) {
           {block.items.map((item, i) => (
             <li key={i}>
               <span className="block-examples__icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24">
-                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" />
-                </svg>
+                <MessageSquare size={14} />
               </span>
               <span className="block-examples__es">
                 <Rich text={item.es} />

@@ -332,6 +332,8 @@ a.sections__item:hover {
 
 .sections__number {
   flex: 0 0 24px;
+  display: flex;
+  align-items: center;
   font-variant-numeric: tabular-nums;
   font-weight: 800;
   color: var(--faint);
@@ -377,6 +379,7 @@ a.sections__item:hover {
 
 .check circle {
   fill: var(--green);
+  stroke: var(--green);
 }
 
 .check path {
@@ -459,10 +462,23 @@ a.sections__item:hover {
 }
 
 .block-card__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 14px;
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.block-card__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--on-text);
+  background: var(--text);
+  border-radius: 50%;
 }
 
 /* Inside a white card, nested white surfaces need contrast */
@@ -588,6 +604,7 @@ a.sections__item:hover {
 
 .block-examples__icon svg {
   fill: var(--on-text);
+  stroke: var(--on-text);
 }
 
 .block-examples__es {

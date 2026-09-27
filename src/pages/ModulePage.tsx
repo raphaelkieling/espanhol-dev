@@ -1,3 +1,5 @@
+import { Pencil } from 'lucide-react'
+import type { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import CheckIcon from '../components/CheckIcon'
 import { hasContent, moduleSections, pad } from '../content/helpers'
@@ -44,7 +46,7 @@ function ModuleView({ module }: { module: Module }) {
       </ol>
 
       <div className="sections sections--exam">
-        <SectionRow module={module} section={exam} label="✎" />
+        <SectionRow module={module} section={exam} label={<Pencil size={16} strokeWidth={2.5} aria-hidden="true" />} />
       </div>
 
       {next && (
@@ -56,7 +58,7 @@ function ModuleView({ module }: { module: Module }) {
   )
 }
 
-function SectionRow({ module, section, label }: { module: Module; section: Section; label: string }) {
+function SectionRow({ module, section, label }: { module: Module; section: Section; label: ReactNode }) {
   const { isCompleted } = useProgress()
   const content = (
     <>
