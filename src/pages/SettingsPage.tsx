@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useProgress } from '../progress/ProgressContext'
+import { useSetting } from '../settings/settings'
 
 function SettingsSection({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -25,6 +26,9 @@ function SettingsRow({ label, description, children }: { label: string; descript
 
 export default function SettingsPage() {
   const { reset } = useProgress()
+  const [lockModules, setLockModules] = useSetting('lockModules')
+  const [music, setMusic] = useSetting('music')
+  const [volume, setVolume] = useSetting('musicVolume')
 
   const confirmReset = () => {
     if (window.confirm('¿Borrar todo tu progreso? Las secciones y pruebas completadas vuelven a cero.')) reset()
@@ -38,7 +42,47 @@ export default function SettingsPage() {
 
       <h1 className="module__title">Configuración</h1>
 
+      <SettingsSection title="Música">
+        <SettingsRow label="Música lofi" description="Muestra un reproductor en la esquina para estudiar con música de fondo.">
+          <input
+            type="checkbox"
+            role="switch"
+            className="switch"
+            checked={music}
+            onChange={(e) => setMusic(e.target.checked)}
+            aria-label="Música lofi"
+          />
+        </SettingsRow>
+        <SettingsRow label="Volumen" description={`${Math.round(volume * 100)}%`}>
+          <input
+            type="range"
+            className="range"
+            style={{ '--value': `${volume * 100}%` } as CSSProperties}
+            min={0}
+            max={1}
+            step={0.05}
+            value={volume}
+            onChange={(e) => setVolume(Number(e.target.value))}
+            disabled={!music}
+            aria-label="Volumen de la música"
+          />
+        </SettingsRow>
+      </SettingsSection>
+
       <SettingsSection title="Progreso">
+        <SettingsRow
+          label="Módulos en orden"
+          description="Bloquea cada módulo en el inicio hasta que apruebes la prueba del anterior."
+        >
+          <input
+            type="checkbox"
+            role="switch"
+            className="switch"
+            checked={lockModules}
+            onChange={(e) => setLockModules(e.target.checked)}
+            aria-label="Módulos en orden"
+          />
+        </SettingsRow>
         <SettingsRow
           label="Reiniciar progreso"
           description="Las secciones y pruebas completadas vuelven a cero. No se puede deshacer."

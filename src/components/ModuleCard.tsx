@@ -1,14 +1,18 @@
+import { Lock } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { pad } from '../content/helpers'
 import type { Module } from '../content/types'
 import { useModuleProgress } from '../progress/ProgressContext'
 import CheckIcon from './CheckIcon'
 
-export default function ModuleCard({ module, featured = false }: { module: Module; featured?: boolean }) {
-  const { examPassed, lessons } = useModuleProgress(module)
+type Props = { module: Module; featured?: boolean; locked?: boolean }
 
-  return (
-    <Link to={`/modulo/${module.id}`} className={`card${featured ? ' card--featured' : ''}`}>
+export default function ModuleCard({ module, featured = false, locked = false }: Props) {
+  const { examPassed, lessons } = useModuleProgress(module)
+  const className = `card${featured ? ' card--featured' : ''}${locked ? ' card--locked' : ''}`
+
+  const content = (
+    <>
       <span className="card__number">{pad(module.id)}</span>
       <span className="card__days">{module.days}</span>
       <img className="card__icon" src={module.icon} alt="" loading="lazy" />
@@ -21,11 +25,27 @@ export default function ModuleCard({ module, featured = false }: { module: Modul
           <span key={i} className={`card__dot${done ? ' is-done' : ''}`} />
         ))}
       </span>
-      {examPassed && (
-        <span className="card__done" title="Módulo completado">
-          <CheckIcon size={24} />
+      {locked ? (
+        <span className="card__done card__lock" title="Completa la prueba del módulo anterior para desbloquearlo">
+          <Lock size={20} strokeWidth={2.5} aria-label="Bloqueado" role="img" />
         </span>
+      ) : (
+        examPassed && (
+          <span className="card__done" title="Módulo completado">
+            <CheckIcon size={24} />
+          </span>
+        )
       )}
+    </>
+  )
+
+  return locked ? (
+    <div className={className} aria-disabled="true">
+      {content}
+    </div>
+  ) : (
+    <Link to={`/modulo/${module.id}`} className={className}>
+      {content}
     </Link>
   )
 }

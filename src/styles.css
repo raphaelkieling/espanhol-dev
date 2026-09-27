@@ -91,7 +91,13 @@ a {
   padding: 28px 0;
 }
 
-.theme-toggle {
+.topbar__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-toggle,
+.icon-button {
   display: grid;
   place-items: center;
   width: 36px;
@@ -103,6 +109,11 @@ a {
   border-radius: 50%;
   cursor: pointer;
   transition: color 0.15s ease, transform 0.2s ease;
+}
+
+.icon-button:hover {
+  color: var(--text);
+  transform: rotate(45deg);
 }
 
 .theme-toggle:hover {
@@ -410,6 +421,28 @@ a.sections__item:hover {
   bottom: 18px;
   right: 20px;
   display: flex;
+}
+
+.card--locked {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.card--locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.card--locked .card__icon {
+  filter: grayscale(1);
+}
+
+.card--locked:hover .card__icon {
+  transform: none;
+}
+
+.card__lock {
+  color: var(--muted);
 }
 
 /* Section page */
@@ -1180,6 +1213,83 @@ a.sections__item:hover {
   flex-shrink: 0;
 }
 
+.switch {
+  appearance: none;
+  position: relative;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  background: var(--faint);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.switch:checked {
+  background: var(--green);
+}
+
+.switch:checked::after {
+  transform: translateX(18px);
+}
+
+.range {
+  appearance: none;
+  width: 160px;
+  height: 6px;
+  margin: 0;
+  /* --value is set inline so the filled part follows the thumb */
+  background: linear-gradient(to right, var(--green) var(--value, 0%), var(--faint) var(--value, 0%));
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+
+.range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+
+.range:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}
+
+.range:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
 .button--danger {
   color: var(--red);
   background: var(--red-soft);
@@ -1194,5 +1304,89 @@ a.sections__item:hover {
   .settings__row {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* Music player */
+.music {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 6px 6px 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.music__icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--on-text);
+  background: var(--text);
+  border-radius: 50%;
+}
+
+.music__icon.is-playing {
+  animation: music-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.music__title {
+  flex: none;
+  width: 120px;
+  padding: 0 4px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--muted);
+}
+
+.music__button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.music__button:hover {
+  color: var(--text);
+  background: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music__icon.is-playing {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .music {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .music__title {
+    display: none;
   }
 }
