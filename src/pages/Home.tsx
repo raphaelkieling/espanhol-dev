@@ -12,6 +12,7 @@ import { useSetting } from '../settings/settings'
 export default function Home() {
   const { isCompleted } = useProgress()
   const [lockModules] = useSetting('lockModules')
+  const [compactHome] = useSetting('compactHome')
   const { done, total } = useCourseProgress()
   const percent = Math.round((done / total) * 100)
   const deck = useDeckProgress()
@@ -50,7 +51,7 @@ export default function Home() {
         </div>
       </Link>
 
-      <div className="grid">
+      <div className={compactHome ? 'grid grid--compact' : 'grid'}>
         <Link to="/introduccion" className="card card--intro">
           <span className="card__number">00</span>
           <span className="card__days">Antes de empezar</span>

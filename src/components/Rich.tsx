@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom'
+
 /**
  * Renders inline marks used in content:
  * **bold**, ~~strike~~, [[highlighted text|note shown on hover]] and [link text](https://…).
+ * Links starting with / are app routes and open in place: [tarjetas](/tarjetas).
  */
 export default function Rich({ text }: { text: string }) {
   const parts = text.split(/(\*\*[^*]+\*\*|~~[^~]+~~|\[\[[^\]]+\]\]|\[[^\]]+\]\([^)]+\))/g)
@@ -18,6 +21,12 @@ export default function Rich({ text }: { text: string }) {
           )
         }
         const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+        if (link?.[2].startsWith('/'))
+          return (
+            <Link key={i} className="rich-link" to={link[2]}>
+              {link[1]}
+            </Link>
+          )
         if (link)
           return (
             <a key={i} className="rich-link" href={link[2]} target="_blank" rel="noreferrer">

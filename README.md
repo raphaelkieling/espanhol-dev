@@ -8,6 +8,7 @@ Mini curso de espanhol para devs brasileiros que precisam usar o idioma no traba
 
 - Uma introdução com dicas de estudo e 6 módulos, cada um com seções curtas, exercícios de completar e um desafio no final.
 - Prova por módulo. Por padrão, cada módulo só libera depois da prova do anterior (dá para desligar nas configurações).
+- Flashcards com repetição espaçada (FSRS): cada módulo concluído libera frases do dicionário para revisar.
 - Progresso salvo no navegador (localStorage), sem login.
 - Dicionário com o vocabulário do curso, tema claro/escuro e um player de música lofi.
 

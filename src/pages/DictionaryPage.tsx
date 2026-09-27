@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import PageHeader from '../components/PageHeader'
 import Rich from '../components/Rich'
 import { pad } from '../content/helpers'
 import { modules } from '../content/modules'
@@ -17,12 +18,7 @@ export default function DictionaryPage() {
         ← Inicio
       </Link>
 
-      <header className="words__head">
-        <div>
-          <h1 className="module__title">Diccionario</h1>
-          <p className="module__subtitle">{words.length} palabras del guia</p>
-        </div>
-      </header>
+      <PageHeader title="Diccionario" subtitle={`${words.length} palabras del guia`} />
 
       <figure className="block-table words__table">
         <table>

@@ -20,7 +20,11 @@ export const introduccion: Section = {
         },
         {
           type: 'text',
-          text: 'Para não esquecer o que estudou, use **flashcards com repetição espaçada**. A ideia é revisar cada item pouco antes de esquecer, e é uma das técnicas de estudo com mais evidência de que funciona. O [Anki](https://apps.ankiweb.net) é gratuito e já vem com o [FSRS](https://github.com/open-spaced-repetition/fsrs4anki/wiki/ABC-of-FSRS), um algoritmo que agenda as revisões de forma mais eficiente que o padrão antigo. Coloque frases inteiras do curso, não palavras soltas, e revise um pouco todo dia. O [Duolingo](https://www.duolingo.com) pode entrar depois, como apoio para manter o contato com o idioma, mas sozinho não prepara para uma conversa de trabalho.',
+          text: 'Para não esquecer o que estudou, use **flashcards com repetição espaçada**. A ideia é revisar cada item pouco antes de esquecer, e é uma das técnicas de estudo com mais evidência de que funciona. O próprio guia já tem isso: nas [Tarjetas](/tarjetas) (o ícone de cartas no topo da página), cada módulo que tu termina libera frases do curso para revisar, e o [FSRS](https://github.com/open-spaced-repetition/fsrs4anki/wiki/ABC-of-FSRS), um algoritmo de repetição espaçada, decide quando cada uma volta. Não precisa instalar nada, só revisar um pouco todo dia.',
+        },
+        {
+          type: 'text',
+          text: 'Se quiser ir além do guia, o [Anki](https://apps.ankiweb.net) é uma boa segunda opção: é gratuito, usa o mesmo FSRS e deixa tu criar teus próprios cartões. Coloque frases inteiras, não palavras soltas. O [Duolingo](https://www.duolingo.com) pode entrar depois, como apoio para manter o contato com o idioma, mas sozinho não prepara para uma conversa de trabalho.',
         },
         {
           type: 'text',
@@ -47,14 +51,14 @@ export const introduccion: Section = {
         explanation: 'É **conversando** que destrava. Errar no começo faz parte.',
       },
       {
-        prompt: 'Qual o melhor jeito de montar seus flashcards no Anki?',
+        prompt: 'Qual o melhor jeito de revisar o que tu estudou?',
         options: [
-          'Frases inteiras do curso, revisando um pouco todo dia',
+          'Flashcards com frases do curso, revisando um pouco todo dia',
           'Listas de palavras soltas, revisadas uma vez por semana',
-          'Regras de gramática copiadas do texto',
+          'Reler as seções inteiras quando der vontade',
         ],
         answer: 0,
-        explanation: '**Frases inteiras** e revisão diária, deixando o FSRS decidir quando cada cartão volta.',
+        explanation: '**Frases** em flashcards e revisão diária, nas Tarjetas do guia ou no Anki, deixando o FSRS decidir quando cada cartão volta.',
       },
     ],
   },

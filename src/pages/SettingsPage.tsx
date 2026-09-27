@@ -28,6 +28,7 @@ function SettingsRow({ label, description, children }: { label: string; descript
 export default function SettingsPage() {
   const { reset } = useProgress()
   const [lockModules, setLockModules] = useSetting('lockModules')
+  const [compactHome, setCompactHome] = useSetting('compactHome')
   const [music, setMusic] = useSetting('music')
   const [volume, setVolume] = useSetting('musicVolume')
 
@@ -45,6 +46,19 @@ export default function SettingsPage() {
       </Link>
 
       <h1 className="module__title">Configuración</h1>
+
+      <SettingsSection title="Apariencia">
+        <SettingsRow label="Inicio compacto" description="Muestra la introducción y los módulos de dos en dos, en tarjetas pequeñas.">
+          <input
+            type="checkbox"
+            role="switch"
+            className="switch"
+            checked={compactHome}
+            onChange={(e) => setCompactHome(e.target.checked)}
+            aria-label="Inicio compacto"
+          />
+        </SettingsRow>
+      </SettingsSection>
 
       <SettingsSection title="Música">
         <SettingsRow label="Música lofi" description="Muestra un reproductor en la esquina para estudiar con música de fondo.">

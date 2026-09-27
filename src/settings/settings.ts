@@ -3,13 +3,15 @@ import { useSyncExternalStore } from 'react'
 type Settings = {
   /** The home locks each module until the previous module's exam is passed. */
   lockModules: boolean
+  /** The home lists the intro and modules two per row, in small cards. */
+  compactHome: boolean
   /** Shows the lofi player in the corner. */
   music: boolean
   /** Lofi player volume, from 0 to 1. */
   musicVolume: number
 }
 
-const DEFAULTS: Settings = { lockModules: true, music: true, musicVolume: 0.1 }
+const DEFAULTS: Settings = { lockModules: true, compactHome: false, music: true, musicVolume: 0.1 }
 
 const storageKey = (name: keyof Settings) => `espanol-para-devs:${name}`
 const listeners = new Set<() => void>()

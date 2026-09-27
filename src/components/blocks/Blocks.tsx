@@ -3,6 +3,7 @@ import type { Block } from '../../content/types'
 import AudioPlayer from '../AudioPlayer'
 import FillBlank from '../FillBlank'
 import Rich from '../Rich'
+import SpeakButton from '../SpeakButton'
 
 function BlockView({ block }: { block: Block }) {
   switch (block.type) {
@@ -78,6 +79,7 @@ function BlockView({ block }: { block: Block }) {
               <span className="block-examples__es">
                 <Rich text={item.es} />
               </span>
+              <SpeakButton text={item.es} className="block-examples__speak" />
               {item.pt && <span className="block-examples__pt">{item.pt}</span>}
             </li>
           ))}

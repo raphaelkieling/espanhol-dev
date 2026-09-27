@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 import { Rating, State, type Grade } from 'ts-fsrs'
+import PageHeader from '../components/PageHeader'
 import Rich from '../components/Rich'
+import SpeakButton from '../components/SpeakButton'
 import { flashcards } from '../content/flashcards'
 import { pad } from '../content/helpers'
 import { isDue, useDeck, type DeckCard } from '../flashcards/deck'
+import { speak, stopSpeaking } from '../speech/speech'
 
 /** Cards rated again before this window closes come back in the same session. */
 const SESSION_WINDOW_MS = 10 * 60 * 1000
@@ -41,12 +44,17 @@ export default function FlashcardsPage() {
         ← Inicio
       </Link>
 
-      <header className="words__head">
-        <div>
-          <h1 className="module__title">Tarjetas</h1>
-          <p className="module__subtitle">Repaso espaciado de las palabras de cada módulo que terminas.</p>
-        </div>
-      </header>
+      <PageHeader
+        title="Tarjetas"
+        subtitle="Repaso espaciado de las palabras de cada módulo que terminas."
+        actions={
+          due.length > 0 && (
+            <button type="button" className="button" onClick={() => setQueue(due.map((c) => c.id))}>
+              Empezar ({due.length})
+            </button>
+          )
+        }
+      />
 
       {queue && (
         <Session
@@ -62,14 +70,12 @@ export default function FlashcardsPage() {
         />
       )}
 
-      {cards.length === 0 ? (
-        <p className="deck__empty">Termina la prueba de un módulo para desbloquear sus tarjetas.</p>
-      ) : due.length === 0 ? (
-        <p className="deck__empty">¡Todo al día! Vuelve más tarde para repasar.</p>
-      ) : (
-        <button type="button" className="button" onClick={() => setQueue(due.map((c) => c.id))}>
-          Empezar ({due.length})
-        </button>
+      {due.length === 0 && (
+        <p className="deck__empty">
+          {cards.length === 0
+            ? 'Termina la prueba de un módulo para desbloquear sus tarjetas.'
+            : '¡Todo al día! Vuelve más tarde para repasar.'}
+        </p>
       )}
 
       <div className="deck__stats">
@@ -196,8 +202,14 @@ function Session({
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = overflow
+      stopSpeaking()
     }
   }, [])
+
+  // Read each sentence as it appears; queue.length changes when a card comes back, so it's read again
+  useEffect(() => {
+    if (card) speak(card.front)
+  }, [card?.id, queue.length])
 
   // Esc closes, space flips the card, 1–3 rate it
   useEffect(() => {
@@ -229,13 +241,17 @@ function Session({
         <span className="module__number">Quedan {queue.length}</span>
         <button type="button" className="button button--ghost" onClick={onExit}>
           Salir
+          <kbd className="kbd">Esc</kbd>
         </button>
       </div>
 
       <div className="flashcard">
-        <p className="flashcard__front">
-          <Rich text={card.front} />
-        </p>
+        <div className="flashcard__front-row">
+          <p className="flashcard__front">
+            <Rich text={card.front} />
+          </p>
+          <SpeakButton text={card.front} className="flashcard__speak" />
+        </div>
         {flipped && (
           <div className="flashcard__back">
             <p className="flashcard__meaning">
@@ -251,11 +267,13 @@ function Session({
           GRADES.map((g) => (
             <button key={g.grade} type="button" className={`button flashcard__grade flashcard__grade--${g.tone}`} onClick={() => rate(g.grade)}>
               {g.label}
+              <kbd className="kbd">{g.key}</kbd>
             </button>
           ))
         ) : (
           <button type="button" className="button" onClick={() => setFlipped(true)}>
             Ver respuesta
+            <kbd className="kbd">Espacio</kbd>
           </button>
         )}
       </div>
