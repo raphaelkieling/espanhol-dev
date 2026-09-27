@@ -1,4 +1,4 @@
-import { Settings } from 'lucide-react'
+import { Layers, Settings } from 'lucide-react'
 import { useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import MusicPlayer from './components/MusicPlayer'
@@ -20,6 +20,9 @@ export default function App() {
           Español<span>/</span>devs
         </Link>
         <div className="topbar__actions">
+          <Link to="/tarjetas" className="icon-button icon-button--cards" aria-label="Tarjetas" title="Tarjetas">
+            <Layers size={18} />
+          </Link>
           <ThemeToggle />
           <Link to="/configuracion" className="icon-button" aria-label="Configuración" title="Configuración">
             <Settings size={18} />

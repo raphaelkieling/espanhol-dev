@@ -116,6 +116,10 @@ a {
   transform: rotate(45deg);
 }
 
+.icon-button--cards:hover {
+  transform: rotate(-10deg);
+}
+
 .theme-toggle:hover {
   color: var(--text);
   transform: rotate(15deg);
@@ -185,6 +189,29 @@ a {
   overflow: hidden;
   background: var(--faint);
   border-radius: 999px;
+}
+
+.course-progress--cards {
+  display: block;
+}
+
+.course-progress--cards:hover .course-progress__label {
+  color: var(--text);
+}
+
+/* Seen and learned share one track: learned is drawn on top of seen */
+.course-progress--cards .course-progress__track {
+  position: relative;
+}
+
+.course-progress--cards .course-progress__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+}
+
+.course-progress__fill--seen {
+  background: var(--blue);
+  opacity: 0.35;
 }
 
 .course-progress__fill {
@@ -318,7 +345,7 @@ a {
 
 /* Module page */
 .module {
-  padding: 32px 0 64px;
+  padding: 8px 0 64px;
 }
 
 .back {
@@ -502,7 +529,7 @@ a.sections__item:hover {
 /* Section page */
 .section {
   max-width: 760px;
-  padding: 32px 0 64px;
+  padding: 8px 0 64px;
 }
 
 .section__head {
@@ -1239,6 +1266,260 @@ a.sections__item:hover {
   .quiz,
   .block-card {
     padding: 24px 20px;
+  }
+}
+
+/* Flashcards */
+.deck__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.deck__stat {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.deck__stat-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--beige-text);
+  background: var(--beige);
+  border-radius: 10px;
+}
+
+.deck__stat-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.deck__stat-text strong {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.deck__stat-text span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.deck__stat-info {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  color: var(--faint);
+  cursor: help;
+  outline: none;
+}
+
+.deck__stat-info:hover,
+.deck__stat-info:focus-visible {
+  color: var(--muted);
+}
+
+.deck__stat-info::after {
+  content: attr(data-note);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: -4px;
+  z-index: 10;
+  width: 240px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--on-text);
+  background: var(--text);
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.deck__stat-info:hover::after,
+.deck__stat-info:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.deck__empty {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.deck__done {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.deck__all {
+  margin-top: 32px;
+}
+
+.deck__table td:first-child {
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.deck__table td:nth-child(n + 3) {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.deck__table tr.is-locked td {
+  color: var(--faint);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pagination__label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.study {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  animation: study-in 0.2s ease;
+}
+
+@keyframes study-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.study .deck__done {
+  align-items: center;
+  padding: 40px;
+  background: var(--card);
+  border-radius: var(--radius);
+}
+
+.study .module__number {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.flashcard-session {
+  width: 100%;
+  max-width: 640px;
+}
+
+.flashcard-session__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  min-height: 280px;
+  padding: 40px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.flashcard__front {
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.flashcard__front strong {
+  font-weight: 800;
+  box-shadow: inset 0 -0.35em var(--blue-mark);
+}
+
+.flashcard__back {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.flashcard__meaning {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.flashcard__example {
+  color: var(--muted);
+}
+
+.flashcard__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.flashcard__grade {
+  flex: 1;
+}
+
+.flashcard__grade--again {
+  color: var(--red);
+  background: var(--red-soft);
+}
+
+.flashcard__grade--hard {
+  color: var(--amber);
+  background: var(--amber-soft);
+}
+
+.flashcard__grade--good {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+@media (max-width: 560px) {
+  .deck__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .flashcard {
+    padding: 28px 20px;
   }
 }
 

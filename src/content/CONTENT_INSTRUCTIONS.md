@@ -137,6 +137,8 @@ The footer links to `/diccionario`, a table of every word the course teaches. It
 - `module`: the id of the module that teaches it. Keep entries grouped in module order, and don't repeat a word that an earlier module already has.
 - Only add words the lessons actually teach. Skip pure grammar (article tables, conjugation endings).
 
+Each word also becomes a flashcard on `/tarjetas` (`src/content/flashcards.ts`), unlocked when the learner passes its module exam. The **first example** is the front of the card, so it must have the word in `**bold**` and enough context to guess the meaning from the sentence. The card id comes from `es`, so renaming `es` resets that card's review history.
+
 ## Adding a module
 
 Add an entry to `modules.ts` with `id`, `slug`, `title`, `subtitle`, `icon`, `sections` and later `exam`. The icon is a 320px PNG from [thiings.co](https://www.thiings.co/things) saved in `public/icons/` and referenced with `icon('<name>')`.

@@ -1,6 +1,6 @@
 import type { Module, Section } from './types'
 
-const slugify = (text: string) =>
+export const slugify = (text: string) =>
   text
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')

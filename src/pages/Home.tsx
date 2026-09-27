@@ -4,6 +4,7 @@ import ModuleCard from '../components/ModuleCard'
 import { INTRO_KEY } from '../content/introduccion'
 import { EXAM_SLUG } from '../content/helpers'
 import { modules } from '../content/modules'
+import { useDeckProgress } from '../flashcards/deck'
 import { useCourseProgress, useProgress } from '../progress/ProgressContext'
 import { sectionKey } from '../progress/store'
 import { useSetting } from '../settings/settings'
@@ -13,6 +14,9 @@ export default function Home() {
   const [lockModules] = useSetting('lockModules')
   const { done, total } = useCourseProgress()
   const percent = Math.round((done / total) * 100)
+  const deck = useDeckProgress()
+  const seenPercent = Math.round((deck.seen / deck.total) * 100)
+  const learnedPercent = Math.round((deck.learned / deck.total) * 100)
 
   return (
     <>
@@ -32,6 +36,19 @@ export default function Home() {
           <span className="course-progress__fill" style={{ width: `${percent}%` }} />
         </div>
       </section>
+
+      <Link to="/tarjetas" className="course-progress course-progress--cards" aria-label="Progreso de las tarjetas">
+        <div className="course-progress__head">
+          <span className="course-progress__label">Tarjetas</span>
+          <span className="course-progress__count">
+            {seenPercent}% vistas · <strong>{learnedPercent}% aprendidas</strong>
+          </span>
+        </div>
+        <div className="course-progress__track" role="progressbar" aria-valuemin={0} aria-valuemax={deck.total} aria-valuenow={deck.learned}>
+          <span className="course-progress__fill course-progress__fill--seen" style={{ width: `${seenPercent}%` }} />
+          <span className="course-progress__fill" style={{ width: `${learnedPercent}%` }} />
+        </div>
+      </Link>
 
       <div className="grid">
         <Link to="/introduccion" className="card card--intro">

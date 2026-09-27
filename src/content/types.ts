@@ -73,3 +73,22 @@ export type Word = {
   /** Id of the module that teaches it. */
   module: number
 }
+
+/**
+ * Flashcard for spaced repetition, built from a dictionary Word (src/content/flashcards.ts).
+ * It joins the learner's deck once the exam of its module is passed.
+ */
+export type Flashcard = {
+  /** Stable id: review history is saved under it. */
+  id: string
+  /** Spanish sentence with the tested word in bold, shown first. */
+  front: string
+  /** The word being tested, as in the dictionary. */
+  word: string
+  /** Meaning in Portuguese, shown after flipping. */
+  back: string
+  /** Where or how it's used, in Portuguese. */
+  context: string
+  /** Id of the module that unlocks it. */
+  module: number
+}

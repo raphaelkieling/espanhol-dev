@@ -45,4 +45,4 @@ Para escrever ou editar conteúdo, veja [src/content/CONTENT_INSTRUCTIONS.md](sr
 
 ## Créditos
 
-Ícones de [Thiings](https://www.thiings.co/things). Feito por [raphaelkieling](https://github.com/raphaelkieling), com ajuda de IA na criação do conteúdo.
+Ícones de [Thiings](https://www.thiings.co/things). Feito por [raphaelkieling](https://github.com/raphaelkieling).

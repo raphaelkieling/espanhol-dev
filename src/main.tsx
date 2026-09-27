@@ -8,6 +8,7 @@ import SectionPage from './pages/SectionPage'
 import DictionaryPage from './pages/DictionaryPage'
 import SettingsPage from './pages/SettingsPage'
 import IntroPage from './pages/IntroPage'
+import FlashcardsPage from './pages/FlashcardsPage'
 import { ProgressProvider } from './progress/ProgressContext'
 import './styles.css'
 
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="modulo/:id" element={<ModulePage />} />
             <Route path="modulo/:id/:section" element={<SectionPage />} />
             <Route path="diccionario" element={<DictionaryPage />} />
+            <Route path="tarjetas" element={<FlashcardsPage />} />
             <Route path="configuracion" element={<SettingsPage />} />
           </Route>
         </Routes>

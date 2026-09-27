@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { clearReviews } from '../flashcards/deck'
 import { useProgress } from '../progress/ProgressContext'
 import { useSetting } from '../settings/settings'
 
@@ -31,7 +32,10 @@ export default function SettingsPage() {
   const [volume, setVolume] = useSetting('musicVolume')
 
   const confirmReset = () => {
-    if (window.confirm('¿Borrar todo tu progreso? Las secciones y pruebas completadas vuelven a cero.')) reset()
+    if (window.confirm('¿Borrar todo tu progreso? Las secciones, pruebas y tarjetas vuelven a cero.')) {
+      reset()
+      clearReviews()
+    }
   }
 
   return (
@@ -85,7 +89,7 @@ export default function SettingsPage() {
         </SettingsRow>
         <SettingsRow
           label="Reiniciar progreso"
-          description="Las secciones y pruebas completadas vuelven a cero. No se puede deshacer."
+          description="Las secciones, pruebas y tarjetas vuelven a cero. No se puede deshacer."
         >
           <button type="button" className="button button--danger" onClick={confirmReset}>
             Reiniciar
