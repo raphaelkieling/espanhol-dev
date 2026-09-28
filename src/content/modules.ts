@@ -1,6 +1,7 @@
 import { conectoresYFrases } from './conectores-y-frases'
 import { pruebaConectores } from './conectores-y-frases/prueba'
 import { gramaticaEsencial } from './gramatica-esencial'
+import { javaAFondo } from './java-a-fondo'
 import { pruebaGramatica } from './gramatica-esencial/prueba'
 import { pairProgrammingYCodeReview } from './pair-programming-y-code-review'
 import { pruebaPair } from './pair-programming-y-code-review/prueba'
@@ -68,6 +69,14 @@ export const modules: Module[] = [
     icon: icon('presentation'),
     sections: reunionesYDecisionesTecnicas,
     exam: pruebaReuniones,
+  },
+  {
+    id: 7,
+    slug: 'java-a-fondo',
+    title: 'Java a fondo',
+    subtitle: 'La JVM por dentro, lo básico, concurrencia, microservicios y Spring Boot',
+    icon: icon('espresso-machine'),
+    sections: javaAFondo,
   },
 ]
 

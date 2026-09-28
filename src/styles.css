@@ -24,6 +24,13 @@
   --on-text: #ffffff;
   --amber-border: #f5d98b;
   --shadow: rgba(0, 0, 0, 0.06);
+  --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  --tok-kw: #7c3aed;
+  --tok-str: #047857;
+  --tok-com: #8a8a8a;
+  --tok-num: #b45309;
+  --tok-ann: #0e7490;
+  --tok-type: #1d4ed8;
   color-scheme: light;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text);
@@ -55,6 +62,12 @@
   --on-text: #111111;
   --amber-border: #8a6a1f;
   --shadow: rgba(0, 0, 0, 0.4);
+  --tok-kw: #c4b5fd;
+  --tok-str: #86efac;
+  --tok-com: #71717a;
+  --tok-num: #fcd34d;
+  --tok-ann: #67e8f9;
+  --tok-type: #93c5fd;
   color-scheme: dark;
 }
 
@@ -245,6 +258,10 @@ a {
   grid-column: span 2;
 }
 
+.grid > .card--wide {
+  grid-column: 1 / -1;
+}
+
 /* Card */
 .card {
   position: relative;
@@ -314,7 +331,8 @@ a {
 }
 
 .card--featured,
-.card--intro {
+.card--intro,
+.card--wide {
   flex-direction: row;
   justify-content: flex-start;
   gap: 28px;
@@ -322,24 +340,28 @@ a {
 }
 
 .card--featured .card__icon,
-.card--intro .card__icon {
+.card--intro .card__icon,
+.card--wide .card__icon {
   width: 168px;
   height: 168px;
 }
 
 .card--featured .card__text,
-.card--intro .card__text {
+.card--intro .card__text,
+.card--wide .card__text {
   text-align: left;
 }
 
 .card--featured .card__title,
-.card--intro .card__title {
+.card--intro .card__title,
+.card--wide .card__title {
   font-size: 32px;
   letter-spacing: -0.03em;
 }
 
 .card--featured .card__subtitle,
-.card--intro .card__subtitle {
+.card--intro .card__subtitle,
+.card--wide .card__subtitle {
   font-size: 16px;
 }
 
@@ -350,7 +372,8 @@ a {
 
 .grid--compact > .card,
 .grid--compact > .card--featured,
-.grid--compact > .card--featured + .card {
+.grid--compact > .card--featured + .card,
+.grid--compact > .card--wide {
   grid-column: span 3;
 }
 
@@ -817,6 +840,192 @@ a.sections__item:hover {
   font-size: 14px;
   line-height: 1.45;
   color: var(--muted);
+}
+
+/* List */
+.block-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 22px;
+}
+
+.block-list li::marker {
+  color: var(--muted);
+}
+
+/* Inline code */
+.inline-code {
+  padding: 1px 6px;
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+/* Code block */
+.block-code {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.block-code__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 8px 6px 14px;
+  background: var(--surface-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.block-code__lang {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.block-code__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: -8px;
+}
+
+.block-code__tab {
+  padding: 4px 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.block-code__tab:hover {
+  color: var(--text);
+}
+
+.block-code__tab.is-active {
+  color: var(--text);
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.block-code__copy {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.block-code__copy:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.block-code__pre {
+  margin: 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+  tab-size: 4;
+}
+
+.block-code figcaption {
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+.tok-kw {
+  color: var(--tok-kw);
+}
+
+.tok-str {
+  color: var(--tok-str);
+}
+
+.tok-com {
+  color: var(--tok-com);
+  font-style: italic;
+}
+
+.tok-num {
+  color: var(--tok-num);
+}
+
+.tok-ann {
+  color: var(--tok-ann);
+}
+
+.tok-type {
+  color: var(--tok-type);
+}
+
+/* Collapsible content, e.g. an answer or a longer example */
+.block-details {
+  background: var(--bg);
+  border: 1px dashed var(--faint);
+  border-radius: 14px;
+}
+
+.block-details__summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.block-details__summary::-webkit-details-marker {
+  display: none;
+}
+
+.block-details__summary::before {
+  content: '';
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+.block-details[open] > .block-details__summary::before {
+  transform: rotate(45deg);
+}
+
+.block-details__body {
+  padding: 0 16px 16px;
+}
+
+.block-details .block-code {
+  background: var(--card);
 }
 
 /* Keyboard shortcut hint inside a button; only shown where there's a keyboard and mouse */
@@ -1352,30 +1561,40 @@ a.sections__item:hover {
   .grid > .card,
   .grid > .card--intro,
   .grid > .card--featured,
-  .grid > .card--featured + .card {
+  .grid > .card--featured + .card,
+  .grid > .card--wide {
     grid-column: auto;
   }
 
   .card--featured,
-  .card--intro {
+  .card--intro,
+  .card--wide {
     flex-direction: column;
     padding: 32px 24px 52px;
   }
 
   .card--featured .card__icon,
-  .card--intro .card__icon {
+  .card--intro .card__icon,
+  .card--wide .card__icon {
     width: 128px;
     height: 128px;
   }
 
   .card--featured .card__text,
-  .card--intro .card__text {
+  .card--intro .card__text,
+  .card--wide .card__text {
     text-align: center;
   }
 
   .card--featured .card__title,
-  .card--intro .card__title {
+  .card--intro .card__title,
+  .card--wide .card__title {
     font-size: 24px;
+  }
+
+  .block-code__pre {
+    padding: 14px;
+    font-size: 13px;
   }
 
   .module__head {

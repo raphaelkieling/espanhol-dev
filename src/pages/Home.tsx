@@ -71,7 +71,9 @@ export default function Home() {
           const prev = modules[i - 1]
           const unlocked = prev ? isCompleted(sectionKey(prev.slug, EXAM_SLUG)) : isCompleted(INTRO_KEY)
           const locked = lockModules && !unlocked
-          return <ModuleCard key={m.id} module={m} featured={m.id === 1} locked={locked} />
+          // Two cards per row: with an odd count, the last module would sit alone on its row
+          const wide = i === modules.length - 1 && modules.length % 2 === 1
+          return <ModuleCard key={m.id} module={m} featured={m.id === 1} wide={wide} locked={locked} />
         })}
       </div>
     </>

@@ -78,7 +78,7 @@ export default function Quiz({ quiz, completed, onPass, title = 'Desafío', succ
                     onClick={() => choose(qi, oi)}
                     disabled={submitted}
                   >
-                    {option}
+                    <Rich text={option} />
                   </button>
                 )
               })}

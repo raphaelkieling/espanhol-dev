@@ -1,6 +1,7 @@
 import { Dumbbell, MessageSquare } from 'lucide-react'
 import type { Block } from '../../content/types'
 import AudioPlayer from '../AudioPlayer'
+import CodeBlock from '../CodeBlock'
 import FillBlank from '../FillBlank'
 import Rich from '../Rich'
 import SpeakButton from '../SpeakButton'
@@ -84,6 +85,31 @@ function BlockView({ block }: { block: Block }) {
             </li>
           ))}
         </ul>
+      )
+    case 'list': {
+      const List = block.ordered ? 'ol' : 'ul'
+      return (
+        <List className="block-list">
+          {block.items.map((item, i) => (
+            <li key={i}>
+              <Rich text={item} />
+            </li>
+          ))}
+        </List>
+      )
+    }
+    case 'code':
+      return <CodeBlock snippets={block.snippets} caption={block.caption} />
+    case 'details':
+      return (
+        <details className="block-details">
+          <summary className="block-details__summary">
+            <Rich text={block.summary} />
+          </summary>
+          <div className="block-details__body">
+            <Blocks blocks={block.blocks} />
+          </div>
+        </details>
       )
     case 'fill':
       return (

@@ -74,6 +74,9 @@ export const example: Section = {
 | `note` | `tone: 'warning'` for common mistakes and false friends. `tone: 'tip'` for shortcuts and context. Optional short `title`. |
 | `fill` | Typing practice. Each item is a Spanish sentence (`es`) with a `___` gap, the `answer` (a string or a list of accepted alternatives) and an optional Portuguese `pt` that makes the answer unambiguous. Matching ignores case and accents. Put it in its own `card` titled "Practica", after the explanation. |
 | `reading` | A short text in Spanish (`paragraphs`) with an optional `title` and `audio`. Use `[[…|…]]` highlights to point at the rules from the module. |
+| `list` | Bulleted items (`ordered: true` for numbered steps): requirements, checklists. |
+| `code` | Highlighted source code. Several `snippets` become tabs (Java next to TypeScript, Go or C#). See [Technical modules](#technical-modules-java-a-fondo). |
+| `details` | Collapsed `blocks` under a `summary` the learner clicks, e.g. an answer or a longer example. |
 
 ### Inline marks
 
@@ -81,6 +84,7 @@ All text fields accept:
 
 - `**bold**` to highlight the word being taught. Bold the target form only, not whole sentences.
 - `~~strike~~` for the wrong form, usually followed by `→` and the right one: `~~Reviso él~~ → **Lo** reviso.`
+- `` `code` `` for class, method and keyword names inside a sentence: `` Un `record` es inmutable. ``
 - `[text](https://…)` links to an external site, opening in a new tab. Use it for tools and references, not inside exercises. A path starting with `/` links to a page of the app instead and opens in place: `[Tarjetas](/tarjetas)`.
 - `[[text|note]]` highlights `text` and shows `note` (Portuguese, a few words) on hover or tap. It's meant for `reading` blocks: `[[al agua|a + el = al]]`.
 
@@ -142,6 +146,43 @@ Each word also becomes a flashcard on `/tarjetas` (`src/content/flashcards.ts`),
 ## Adding a module
 
 Add an entry to `modules.ts` with `id`, `slug`, `title`, `subtitle`, `icon`, `sections` and later `exam`. The icon is a 320px PNG from [thiings.co](https://www.thiings.co/things) saved in `public/icons/` and referenced with `icon('<name>')`.
+
+## Technical modules (Java a fondo)
+
+Module 7, `java-a-fondo/`, teaches Java itself **in Spanish**, in five sections: how the JVM works, the basics, concurrency, microservices and Spring Boot. The reader practices Spanish by learning something useful for work. Keep only what a dev will use on the job. It follows the rules above with these differences.
+
+### Language
+
+| Where | Language |
+|---|---|
+| Everything: titles, summaries, explanations, notes, quiz prompts, options and explanations | Latin American Spanish |
+| Code comments and identifiers invented for the examples (`Pedido`, `Pago`) | Spanish |
+| API, library and keyword names | As they are (`CompletableFuture`, `@Transactional`) |
+| `pt` of `examples` and `fill`, `[[…\|note]]` notes, second column of the Vocabulario table | Brazilian Portuguese |
+
+- Short sentences and common words: the reader is still learning Spanish. One idea per `text` block.
+- Use `[[palabra|tradução]]` 2 to 5 times per section on Spanish words a Brazilian may not know or may misread (`[[genera|gera]]`, `[[la cola|a fila]]`).
+- Keep the English name when that's what Latin American teams say (circuit breaker, rate limiter, outbox, virtual threads, deploy), and teach the Spanish word when one is really used (hilo, reintento, caché, despliegue, rendimiento).
+
+### Section anatomy
+
+In this order, each one in its own `card`:
+
+1. An opening card without a title: the problem the topic solves, in 1–3 sentences.
+2. Concept cards, one per sub-topic. Each has a short `text`, then `code`, a `table` or a `list`, and usually a `note`. A `warning` note covers the most common mistake of someone coming from TypeScript, Go or C#. Each section covers a whole topic, so it can take up to ~15 minutes to read.
+3. **Cómo decirlo en el equipo**: `examples` with 2–3 sentences a dev would say about the topic at work (daily, PR, incident), with `pt`.
+4. **Practica**: a `fill` with 3–4 sentences. The gap is a Spanish word or a Java keyword, never inside `` `code` ``: the gap splits the text, so the backticks break.
+5. **Vocabulario**: a `table` with the columns `Español` and `Português`, 5–7 terms from the section in **bold**.
+6. The `quiz` (shown as "Desafío"): 5 questions, the same rules as any quiz, all in Spanish. Options can use `` `code` ``.
+
+### Code
+
+- A `code` block with several `snippets` becomes tabs. Put Java first and add TypeScript, Go or C# when the comparison makes the idea clearer, not by default. Only compare when it's accurate: if a language has nothing similar, say so in a comment.
+- Snippets are template literals. Indent them with the file; the renderer removes the shared indentation and the blank first and last lines.
+- Inside a snippet, escape `` ` `` as `` \` `` and `${` as `\${`, and double every backslash (`"\\n"`), or the template literal changes the code.
+- Keep snippets short (up to ~25 lines) and compilable, with imports left out.
+- Target **Java 21**. Mention what changed in later LTS versions (Java 25) when it matters in practice. Spring examples target **Spring Boot 3.x**.
+- Never invent flags, properties or APIs. If you're not sure a name exists, leave it out.
 
 ## Checklist before publishing
 

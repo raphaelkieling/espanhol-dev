@@ -5,11 +5,12 @@ import type { Module } from '../content/types'
 import { useModuleProgress } from '../progress/ProgressContext'
 import CheckIcon from './CheckIcon'
 
-type Props = { module: Module; featured?: boolean; locked?: boolean }
+/** `wide` spans the full row, for a module that would otherwise sit alone on the last one. */
+type Props = { module: Module; featured?: boolean; wide?: boolean; locked?: boolean }
 
-export default function ModuleCard({ module, featured = false, locked = false }: Props) {
+export default function ModuleCard({ module, featured = false, wide = false, locked = false }: Props) {
   const { examPassed, lessons } = useModuleProgress(module)
-  const className = `card${featured ? ' card--featured' : ''}${locked ? ' card--locked' : ''}`
+  const className = `card${featured ? ' card--featured' : ''}${wide ? ' card--wide' : ''}${locked ? ' card--locked' : ''}`
 
   const content = (
     <>

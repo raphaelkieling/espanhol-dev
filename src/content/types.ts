@@ -1,7 +1,25 @@
 /**
  * Content model shared by every module.
- * Text fields accept inline marks: **bold**, ~~strike~~, [[highlight|note]] and [link](url).
+ * Text fields accept inline marks: **bold**, ~~strike~~, `code`, [[highlight|note]] and [link](url).
  */
+
+/** Languages the code block knows how to label and highlight. */
+export type CodeLang =
+  | 'java'
+  | 'ts'
+  | 'go'
+  | 'csharp'
+  | 'kotlin'
+  | 'sql'
+  | 'yaml'
+  | 'bash'
+  | 'dockerfile'
+  | 'proto'
+  | 'json'
+  | 'xml'
+  | 'properties'
+  | 'http'
+  | 'text'
 
 export type Block =
   | { type: 'heading'; text: string }
@@ -11,6 +29,15 @@ export type Block =
   | { type: 'table'; columns: string[]; rows: string[][]; caption?: string }
   | { type: 'note'; tone?: 'tip' | 'warning'; title?: string; text: string }
   | { type: 'examples'; items: { es: string; pt?: string }[] }
+  /** Bulleted (or numbered) list: steps, requirements, checklists. */
+  | { type: 'list'; items: string[]; ordered?: boolean }
+  /**
+   * Source code. One snippet renders as is; several become tabs, e.g. the Java
+   * version next to the same idea in TypeScript, Go or C#. `label` overrides the tab name.
+   */
+  | { type: 'code'; snippets: { lang: CodeLang; code: string; label?: string }[]; caption?: string }
+  /** Collapsed content the learner opens on demand, such as an answer or a longer example. */
+  | { type: 'details'; summary: string; blocks: Block[] }
   /**
    * Typing exercise: each sentence has a ___ gap and the learner types the missing word.
    * `answer` accepts alternatives; matching ignores case and accents.

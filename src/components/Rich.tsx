@@ -2,14 +2,20 @@ import { Link } from 'react-router-dom'
 
 /**
  * Renders inline marks used in content:
- * **bold**, ~~strike~~, [[highlighted text|note shown on hover]] and [link text](https://…).
+ * **bold**, ~~strike~~, `code`, [[highlighted text|note shown on hover]] and [link text](https://…).
  * Links starting with / are app routes and open in place: [tarjetas](/tarjetas).
  */
 export default function Rich({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*|~~[^~]+~~|\[\[[^\]]+\]\]|\[[^\]]+\]\([^)]+\))/g)
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|~~[^~]+~~|\[\[[^\]]+\]\]|\[[^\]]+\]\([^)]+\))/g)
   return (
     <>
       {parts.map((part, i) => {
+        if (part.length > 2 && part.startsWith('`') && part.endsWith('`'))
+          return (
+            <code key={i} className="inline-code">
+              {part.slice(1, -1)}
+            </code>
+          )
         if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>
         if (part.startsWith('~~') && part.endsWith('~~')) return <s key={i}>{part.slice(2, -2)}</s>
         if (part.startsWith('[[') && part.endsWith(']]')) {

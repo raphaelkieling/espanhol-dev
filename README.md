@@ -2,6 +2,8 @@
 
 Mini curso de espanhol para devs brasileiros que precisam usar o idioma no trabalho de última hora: daily, PRs, reuniões e pair programming.
 
+**Acesse: https://raphaelkieling.github.io/espanhol-dev/**
+
 ![Tela inicial](docs/home.png)
 
 ## O que tem
@@ -29,6 +31,8 @@ Para gerar a versão de produção em `dist/`:
 npm run build
 npm run preview
 ```
+
+> Push na `main` publica o site no GitHub Pages automaticamente ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)).
 
 ## Estrutura
 
